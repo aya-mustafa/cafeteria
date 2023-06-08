@@ -22,6 +22,9 @@ import { UsersComponent } from './admin/users/users.component';
 import { CategoryAdminComponent } from './admin/category-admin/category-admin.component';
 import { ChecksComponent } from './admin/checks/checks.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
     UsersComponent,
     CategoryAdminComponent,
     ChecksComponent,
-    AdminOrdersComponent
+    AdminOrdersComponent,
+    NavbarComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

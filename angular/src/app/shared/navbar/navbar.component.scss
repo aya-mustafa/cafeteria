@@ -1,0 +1,24 @@
+
+/*_____Start nav styling____*/
+    .navbar-light .navbar-nav .active>.nav-link
+    {
+        color:#8e7754
+    }
+    .navbar-expand-sm .navbar-nav .nav-link
+    {
+        color: #d4c9c9;
+        font-size: 18px;
+        margin-right: 16px;
+        padding: 3px;
+    }
+    .navbar-light .navbar-toggler {
+        border:none
+    }
+    .dropdown-menu
+    {
+        min-width: 7rem;
+        box-shadow: 0px 0px 10px rgba(98, 79, 79, 0.334);
+        border: none;
+        color: #5e83a9;
+    }
+/*_____End nav styling_____*/
