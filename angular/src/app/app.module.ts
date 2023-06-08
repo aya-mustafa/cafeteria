@@ -1,0 +1,56 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
+import { HomeComponent } from './shared/home/home.component';
+import { AboutComponent } from './shared/about/about.component';
+import { ContactComponent } from './shared/contact/contact.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { CategoryComponent } from './user/category/category.component';
+import { CategoryDetailsComponent } from './user/category-details/category-details.component';
+import { ProductComponent } from './user/product/product.component';
+import { ProductDetailsComponent } from './user/product-details/product-details.component';
+import { CartComponent } from './user/cart/cart.component';
+import { OrdersComponent } from './user/orders/orders.component';
+import { SearchPipe } from './pipes/search.pipe';
+import { ProductAdminComponent } from './admin/product-admin/product-admin.component';
+import { UsersComponent } from './admin/users/users.component';
+import { CategoryAdminComponent } from './admin/category-admin/category-admin.component';
+import { ChecksComponent } from './admin/checks/checks.component';
+import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForgetPasswordComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
+    NotFoundComponent,
+    CategoryComponent,
+    CategoryDetailsComponent,
+    ProductComponent,
+    ProductDetailsComponent,
+    CartComponent,
+    OrdersComponent,
+    SearchPipe,
+    ProductAdminComponent,
+    UsersComponent,
+    CategoryAdminComponent,
+    ChecksComponent,
+    AdminOrdersComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
