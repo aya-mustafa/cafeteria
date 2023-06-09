@@ -57,3 +57,13 @@
     text-decoration: none;
     color:#fff
 }
+
+.card
+{
+    background-color: #fbfafa;
+    transition: all 0.5s;
+}
+.card:hover
+{
+    transform: scale(1.1,1.1);
+}
