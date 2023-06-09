@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent {
-
+  quantity:number=0;
+  priceForOneProduct:any=15;
+  totalPriceForOneProduct:any=this.priceForOneProduct
+  plusQuantity()
+  {
+    this.quantity++;
+    this.totalPriceForOneProduct=this.priceForOneProduct*this.quantity
+  }
+  minusQuantity()
+  {
+    if(this.quantity>1)
+    {
+      this.quantity--;
+    this.totalPriceForOneProduct=this.priceForOneProduct*this.quantity
+    }
+  }
 }

@@ -1,1 +1,11 @@
-<p>product works!</p>
+<div class="container my-5">
+    <div class="row mb-3">
+        <div class="col-md-3 mb-4" *ngFor="let product of allProducts">
+            <div class="card text-white bg-primary" >
+              <div class="card-body">
+                <h4 class="card-title">{{product.produt_name}}</h4>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

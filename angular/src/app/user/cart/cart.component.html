@@ -1,1 +1,72 @@
-<p>cart works!</p>
+<div class="container mb-5 text-center">
+    <h3 class="my-5">Shopping Cart</h3>
+
+    <table class="table table-bordered  ">
+        <thead>
+            <th class="py-2">Name</th>
+            <th class="py-2">Image</th>
+            <th class="py-2">Notes</th>
+            <th class="py-2">Price</th>
+            <th class="py-2">Quantity</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tea</td>
+                <td ><img src="../../../assets/coffee-beans-with-props-making-coffee_1220-4536.jpg" style="width:150px" alt=""></td>
+                <td>
+                    <li>No sugar</li>
+                    <li>No sugar</li>
+                    <li>No sugar</li>
+                </td>
+                <td>{{totalPriceForOneProduct}}</td>
+                <td>
+                    <button (click)="plusQuantity()" class="button"><i class="fa fa-plus"></i></button>
+                    <span class="px-2">{{quantity}}</span>
+                    <button (click)="minusQuantity()" class="button me-2"><i class="fa fa-minus"></i></button>
+                    <button class="button"><i class="fa fa-trash"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>Tea</td>
+                <td ><img src="../../../assets/coffee-beans-with-props-making-coffee_1220-4536.jpg" style="width:150px" alt=""></td>
+                <td>
+                    <li>No sugar</li>
+                    <li>No sugar</li>
+                    <li>No sugar</li>
+                </td>
+                <td>{{totalPriceForOneProduct}}</td>
+                <td>
+                    <button (click)="plusQuantity()" class="button"><i class="fa fa-plus"></i></button>
+                    <span class="px-2">{{quantity}}</span>
+                    <button (click)="minusQuantity()" class="button me-2"><i class="fa fa-minus"></i></button>
+                    <button class="button"><i class="fa fa-trash"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>Tea</td>
+                <td ><img src="../../../assets/coffee-beans-with-props-making-coffee_1220-4536.jpg" style="width:150px" alt=""></td>
+                <td>
+                    <li>No sugar</li>
+                    <li>No sugar</li>
+                    <li>No sugar</li>
+                </td>
+                <td>{{totalPriceForOneProduct}}</td>
+                <td>
+                    <button (click)="plusQuantity()" class="button"><i class="fa fa-plus"></i></button>
+                    <span class="px-2">{{quantity}}</span>
+                    <button (click)="minusQuantity()" class="button me-2"><i class="fa fa-minus"></i></button>
+                    <button class="button"><i class="fa fa-trash"></i></button>
+                </td>
+            </tr>
+            
+        </tbody>
+        <tfoot>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="py-2"><b>total : 200</b></td>
+        </tfoot>
+    </table>
+</div>
+
