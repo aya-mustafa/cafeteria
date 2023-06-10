@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent {
-  quantity:number=0;
+  quantity:number=1;
   priceForOneProduct:any=15;
   totalPriceForOneProduct:any=this.priceForOneProduct
   plusQuantity()
