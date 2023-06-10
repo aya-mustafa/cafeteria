@@ -18,6 +18,9 @@ export class ProductComponent {
     })
   }
 
-
+  goToDetails(productId:number)
+  {
+    this._router.navigateByUrl(`productDetails/${productId}`)
+  }
 
 }

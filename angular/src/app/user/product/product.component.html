@@ -1,9 +1,12 @@
 <div class="container my-5">
     <div class="row mb-3">
         <div class="col-md-3 mb-4" *ngFor="let product of allProducts">
-            <div class="card text-white bg-primary" >
+            <div class="card" >
               <div class="card-body">
-                <h4 class="card-title">{{product.produt_name}}</h4>
+                <img class="img-fluid rounded" src="../../../assets/coffee-beans-with-props-making-coffee_1220-4536.jpg" alt="">
+                <h5 class="card-title mt-3">{{product.produt_name}}</h5>
+                <button (click)="goToDetails(product.product_id)" class=" me-3">Show Details</button>
+                <button><i class="fa fa-shopping-cart"></i></button>
               </div>
             </div>
         </div>

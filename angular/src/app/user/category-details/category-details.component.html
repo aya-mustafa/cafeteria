@@ -1,1 +1,13 @@
-<p>category-details works!</p>
+<div class="container my-5">
+    <div class="row mb-3">
+        <div class="col-md-3 mb-4" *ngFor="let product of productsRelatedToCategory">
+            <div class="card" >
+              <div class="card-body">
+                <img class="img-fluid rounded" src="../../../assets/coffee-beans-with-props-making-coffee_1220-4536.jpg" alt="">
+                <h5 class="card-title mt-3">{{product.produt_name}}</h5>
+                <button><i class="fa fa-shopping-cart"></i></button>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
