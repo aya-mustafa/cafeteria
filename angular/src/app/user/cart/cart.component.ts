@@ -21,7 +21,7 @@ export class CartComponent {
     this.quantity++;
     this.totalPriceForOneProduct=this.priceForOneProduct*this.quantity
   }
-  minusQuantity(product:any)
+  minusQuantity()
   {
     if(this.quantity>1)
     {
@@ -29,6 +29,7 @@ export class CartComponent {
     this.totalPriceForOneProduct=this.priceForOneProduct*this.quantity
     }
   }
+
 
 
   removeItem(product:any)
