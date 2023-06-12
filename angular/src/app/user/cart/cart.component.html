@@ -8,56 +8,29 @@
             <th class="py-2">Notes</th>
             <th class="py-2">Price</th>
             <th class="py-2">Quantity</th>
+            <th class="py-2">Remove Product</th>
         </thead>
         <tbody>
-            <tr>
-                <td>Tea</td>
+            <tr *ngFor="let product of cartItems ">
+                <td>{{product.produt_name}}</td>
                 <td ><img src="../../../assets/coffee-beans-with-props-making-coffee_1220-4536.jpg" style="width:150px" alt=""></td>
                 <td>
                     <li>No sugar</li>
                     <li>No sugar</li>
                     <li>No sugar</li>
                 </td>
-                <td>{{totalPriceForOneProduct}}</td>
+                <td>{{product.price}}</td>
                 <td>
-                    <button (click)="plusQuantity()" class="button"><i class="fa fa-plus"></i></button>
+                    <button (click)="plusQuantity(product)" class="button"><i class="fa fa-plus"></i></button>
                     <span class="px-2">{{quantity}}</span>
-                    <button (click)="minusQuantity()" class="button me-2"><i class="fa fa-minus"></i></button>
+                    <button (click)="minusQuantity(product)" class="button me-2"><i class="fa fa-minus"></i></button>
                     <button class="button"><i class="fa fa-trash"></i></button>
                 </td>
-            </tr>
-            <tr>
-                <td>Tea</td>
-                <td ><img src="../../../assets/coffee-beans-with-props-making-coffee_1220-4536.jpg" style="width:150px" alt=""></td>
                 <td>
-                    <li>No sugar</li>
-                    <li>No sugar</li>
-                    <li>No sugar</li>
-                </td>
-                <td>{{totalPriceForOneProduct}}</td>
-                <td>
-                    <button (click)="plusQuantity()" class="button"><i class="fa fa-plus"></i></button>
-                    <span class="px-2">{{quantity}}</span>
-                    <button (click)="minusQuantity()" class="button me-2"><i class="fa fa-minus"></i></button>
-                    <button class="button"><i class="fa fa-trash"></i></button>
+                    <button (click)="removeItem(product)" class="button"><i class="fa fa-trash"></i></button>
                 </td>
             </tr>
-            <tr>
-                <td>Tea</td>
-                <td ><img src="../../../assets/coffee-beans-with-props-making-coffee_1220-4536.jpg" style="width:150px" alt=""></td>
-                <td>
-                    <li>No sugar</li>
-                    <li>No sugar</li>
-                    <li>No sugar</li>
-                </td>
-                <td>{{totalPriceForOneProduct}}</td>
-                <td>
-                    <button (click)="plusQuantity()" class="button"><i class="fa fa-plus"></i></button>
-                    <span class="px-2">{{quantity}}</span>
-                    <button (click)="minusQuantity()" class="button me-2"><i class="fa fa-minus"></i></button>
-                    <button class="button"><i class="fa fa-trash"></i></button>
-                </td>
-            </tr>
+           
             
         </tbody>
         <tfoot>
@@ -66,7 +39,11 @@
             <td></td>
             <td></td>
             <td class="py-2"><b>total : 200</b></td>
+            <td></td>
         </tfoot>
     </table>
+
+    <button class="button">Confirm</button>
+
 </div>
 
