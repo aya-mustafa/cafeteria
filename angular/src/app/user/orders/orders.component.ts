@@ -11,6 +11,12 @@ export class OrdersComponent {
   constructor()
   {
   }
+
+  orders:any[]=
+  [
+    {date:"23-9-2022",}
+  ]
+
   getStartDate()
   {
     let startDate:any= document.getElementById("startDate");

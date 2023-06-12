@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
 
@@ -12,7 +13,7 @@ export class ProductDetailsComponent {
 
   productDetails:any;
   allproducts:any=[];
-  constructor(private _ProductService : ProductService,private _ActivatedRoute:ActivatedRoute)
+  constructor(private _ProductService : ProductService,private _ActivatedRoute:ActivatedRoute, private _CartService: CartService)
   {
     let id =_ActivatedRoute.snapshot.params["id"];
 
@@ -34,5 +35,19 @@ export class ProductDetailsComponent {
   }
 
 
+    add()
+    {
+      this._CartService.addToCart(this.productDetails);
+      alert("Product added to Cart")
+    }
+
+  addToCart()
+  {
+    this.add();
+  }
 
 }
+function add() {
+  throw new Error('Function not implemented.');
+}
+

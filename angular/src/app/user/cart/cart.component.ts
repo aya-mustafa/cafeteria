@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -6,10 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent {
+
+  cartItems:any[]=[];
+  constructor(private _CartService : CartService)
+  {
+    this.cartItems = this._CartService.items
+  }
   quantity:number=1;
   priceForOneProduct:any=15;
   totalPriceForOneProduct:any=this.priceForOneProduct
-  plusQuantity()
+  plusQuantity(product:any)
   {
     this.quantity++;
     this.totalPriceForOneProduct=this.priceForOneProduct*this.quantity
@@ -22,4 +29,14 @@ export class CartComponent {
     this.totalPriceForOneProduct=this.priceForOneProduct*this.quantity
     }
   }
+
+
+
+  removeItem(product:any)
+  {
+    this._CartService.delete(product);
+    alert("product removed from cart")
+  }
+
+
 }
