@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
 
@@ -12,7 +13,7 @@ export class CategoryDetailsComponent {
 
   allProducts:any=[];
   productsRelatedToCategory:any[]=[];
-  constructor(private _ProductService : ProductService,private _ActivatedRoute:ActivatedRoute)
+  constructor(private _ProductService : ProductService,private _ActivatedRoute:ActivatedRoute, private _CartService:CartService)
   {
     this._ProductService.getAllproducts().subscribe((res)=>
     {
@@ -28,6 +29,13 @@ export class CategoryDetailsComponent {
 
       }
     })
+  }
+
+
+  addToCart(product:any)
+  {
+    this._CartService.addToCart(product);
+    alert("Product added to Cart")
   }
 
 
