@@ -16,7 +16,7 @@ export class LoginComponent {
   loginForm:FormGroup = new FormGroup(
     {
       email :  new FormControl('',[Validators.required,Validators.email]),
-      password : new FormControl('',[Validators.required,Validators.pattern(/^[a-z]{1}[0-9]{3,8}/)]),
+      password : new FormControl('',[Validators.required]),
     }
   )
 
@@ -32,9 +32,10 @@ export class LoginComponent {
       this.auth.login(this.loginForm.value).subscribe(
       {
         next: res => {
-          this._router.navigateByUrl('/category');
+          console.log("Yes")
         },
-        error: err => alert("Invalid email or password"),
+        error: err =>
+        alert("err"),
         complete: () => {
         }
       })

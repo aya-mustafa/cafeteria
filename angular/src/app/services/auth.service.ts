@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+  import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -14,6 +14,6 @@ export class AuthService {
 
   login(loginData:any):Observable<any>
   {
-    return this._http.post('',loginData);
+    return this._http.post('http://localhost/cafeteria(Backend)/Cafe-Api/auth/login.php',loginData);
   }
 }

@@ -17,10 +17,10 @@
                 <div class="form-group mb-4">
                     <!-- <label for="">Password:</label> -->
                     <input type="password" class="form-control my-2 bg-transparent" placeholder="Enter password" formControlName="password">
-                    <div *ngIf="loginForm.controls['password'].errors&& loginForm.controls['password'].touched ">
+                    <!-- <div *ngIf="loginForm.controls['password'].errors&& loginForm.controls['password'].touched ">
                         <span *ngIf="loginForm.controls['password'].errors?.['required']!==undefined" class="text-danger">password is required</span>
                         <span *ngIf="!loginForm.controls['password'].errors?.['required'] && loginForm.controls['password'].errors!=null " class="text-danger">Password must start with small letter then conatin from 3 to 8 numbers </span>   
-                    </div>
+                    </div> -->
                 </div>
                 <button [disabled]="loginForm.status=='INVALID'"  type="submit" class="btn">Login</button>
             </form>
