@@ -1,0 +1,70 @@
+
+.pageBox {
+    background-color: #fff;
+    box-shadow: 1px 1px 4px #797878;
+    margin: 1.6rem 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    height: 500px;
+    position: relative;
+  }
+.pageBox table
+{
+width: 100%;
+}
+.pageBox table thead
+{
+border-bottom: 1px solid #f7f7f7;
+}
+
+.layer
+{
+  background-color:#f3f2f2;
+  z-index: 999999;
+  top:48%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: none;
+  box-shadow: 0px 0px 3px #9b9a9a;
+}
+.layer button, .updatelayer button
+{
+  background-color: #bd2b54fe;
+  color :#fff
+}
+.layer svg,  .updatelayer svg
+{
+  width:15px;
+  height: 15px;
+  background-color: #bd2b54fe;
+  color :#fff;
+  border-radius: 50%;
+  padding: 4px;
+}
+.updatelayer
+{
+  background-color:#f3f2f2;
+  z-index: 999999;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: none;
+  box-shadow: 0px 0px 3px #9b9a9a;
+}
+
+.close
+{
+  top:15px;
+  right:15px;
+  color: #fff;
+}
+.paginationNav
+  {
+    min-width: 100%;
+    position: absolute;
+    bottom: 0px;
+  }
+  .ngx-pagination .current
+  {
+    color :#ab64bd !important
+  }
