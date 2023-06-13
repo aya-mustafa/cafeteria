@@ -27,6 +27,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserOrderComponent } from './user/user-order/user-order.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AdminOrdersComponent,
     NavbarComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    UserOrderComponent
   ],
   imports: [
     BrowserModule,

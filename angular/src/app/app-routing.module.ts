@@ -13,6 +13,8 @@ import { RegisterComponent } from './auth/register/register.component';
 import { CategoryComponent } from './user/category/category.component';
 import { CategoryDetailsComponent } from './user/category-details/category-details.component';
 import { ProductDetailsComponent } from './user/product-details/product-details.component';
+import { UserOrderComponent } from './user/user-order/user-order.component';
+import { ChecksComponent } from './admin/checks/checks.component';
 
 
 const routes: Routes = [
@@ -28,6 +30,7 @@ const routes: Routes = [
   {path:'orders',component:OrdersComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
+  {path:'checks',component:ChecksComponent},
   {path:'**',component:NotFoundComponent},
 ];
 

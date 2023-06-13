@@ -1,1 +1,24 @@
 <p>checks works!</p>
+<label for="dateFrom">Date from</label>
+<input type="date" name="dateFrom" id="">
+<br><br>
+<label for="dateTo">Date to</label>
+<input type="date" name="dateTo" id="">
+<br><br>
+<select class="form-select" aria-label="Default select example">
+    <option *ngFor="let user of users" value="1">{{user}}</option>
+  </select>
+<div class="list-group">
+    <a *ngFor="let name of allNames"  class="list-group-item list-group-item-action">{{name}}</a>
+  
+  </div>
+<br><br>
+  <div class="list-group">
+    <a *ngFor="let order of ordersDate"  class="list-group-item list-group-item-action">{{order}}</a>
+  
+  </div>
+  <br><br>
+  <div class="list-group">
+    <a *ngFor="let item of itemss"  class="list-group-item list-group-item-action">{{item}}</a>
+  
+  </div>
