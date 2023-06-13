@@ -1,1 +1,102 @@
-<p>product-admin works!</p>
+
+<!-- <div class="container-fluid" style="background-color: #f1f5f9">
+    <a (click)="showAddBox()">
+        <i class="fa fa-plus-square fs-5 mt-2"></i>
+    </a>
+    <div class="row flex-nowrap">
+      <div class="container-fluid" style="width: 82vw">
+        <div class="pageBox mt-4 ">
+            <table class="text-center">
+                <thead class="mb-3">
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Room</th>
+                    <th>Ext</th>
+                    <th>Action</th>
+                </thead>
+                <div class="py-2"></div>
+                <tbody>
+                    <tr  *ngFor="let user of allUsers">
+
+                        <td >{{user.name}}</td>
+                        <td>
+                            <img [src]="user.image" alt="userImage">
+                        </td> 
+                        <td>{{user.room_number}}</td> 
+                        <td>{{user.ext}}</td>
+                        <td>
+                            <a (click)="showUpdateBox(user.id)">
+                                <i class="fa-solid fa-pen me-3 mt-4"></i>
+                            </a>
+                            <a (click)="deleteProduct(user.id)">
+                                <i class="fa-regular fa-trash-can mt-4"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+             </table>
+        </div>
+      </div>
+
+
+    </div>
+</div>
+
+<div class="layer position-absolute position-relative px-5 py-3 rounded text-center" id="layer">
+    <a (click)="closeAddBox()" class="position-absolute close">
+        <i class="fa fa-close fs-5"></i>
+    </a>
+    <h3 class="mt-4">Add User</h3>
+    <form  [formGroup]="addProductForm" (ngSubmit)="addProduct()" class="py-4">
+        <div class="form-group mb-4">
+            <input type="text" class="form-control my-2 bg-transparent" placeholder="Enter User Name" formControlName="name">
+        </div>
+        <div class="form-group mb-4">
+            <input type="text" class="form-control my-2 bg-transparent" placeholder="Enter User Email" formControlName="email">
+        </div>
+        <div class="form-group mb-4">
+            <input type="password" class="form-control my-2 bg-transparent" placeholder="Enter User password" formControlName="password">
+        </div>
+        <div class="form-group mb-4">
+            <input type="number" class="form-control my-2 bg-transparent" placeholder="Enter User Room" formControlName="room_number">
+        </div>
+        <div class="form-group mb-4">
+            <input type="number" class="form-control my-2 bg-transparent" placeholder="Enter User Exit" formControlName="ext">
+        </div>
+        <div class="form-group mb-4">
+            <input type="file" class="form-control my-2 bg-transparent" placeholder="Enter User Image" formControlName="image">
+        </div>
+        <button   type="submit" class="btn">Add User</button>
+    </form>
+</div>
+
+
+<div class="updatelayer position-absolute position-relative px-5 py-3 rounded text-center" id="updatelayer">
+    <a (click)="closeUpdateBox()" class="position-absolute close">
+        <i class="fa fa-close fs-5"></i>
+    </a>
+    <h3 class="mt-4">Update User</h3>
+    <form  [formGroup]="updateProductForm" (ngSubmit)="updateProduct()" class="py-4">
+        <div class="form-group mb-4">
+            <input type="text" class="form-control my-2 bg-transparent" placeholder="Enter User Name" formControlName="name">
+        </div>
+        <div class="form-group mb-4">
+            <input type="text" class="form-control my-2 bg-transparent" placeholder="Enter User Email" formControlName="email">
+        </div>
+        <div class="form-group mb-4">
+            <input type="password" class="form-control my-2 bg-transparent" placeholder="Enter User password" formControlName="password">
+        </div>
+        <div class="form-group mb-4">
+            <input type="number" class="form-control my-2 bg-transparent" placeholder="Enter User Room" formControlName="room_number">
+        </div>
+        <div class="form-group mb-4">
+            <input type="number" class="form-control my-2 bg-transparent" placeholder="Enter User Exit" formControlName="ext">
+        </div>
+        <div class="form-group mb-4">
+            <input type="file" class="form-control my-2 bg-transparent" placeholder="Enter User Image" formControlName="image">
+        </div>
+        <button   type="submit" class="btn">Update User</button>
+    </form>
+</div>
+
+ -->

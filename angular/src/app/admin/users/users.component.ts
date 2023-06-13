@@ -34,29 +34,17 @@ export class UsersComponent {
   )
   
   user:any;
+  allUsers:any;
   updatedCurrentElementId:any;
 
   constructor( private _UserService: UserService)
   {
 
-   this._UserService.getOneUsers(4).subscribe(
-    {
-      next: res => {
-        this.user = res;
-      },
-      error: err =>
-      alert("err"),
-      complete: () => {
-      }
-    })
-    
-  }
 
-  getAllUsers()
-  {
     this._UserService.getAllUsers().subscribe(
       {
         next: res => {
+          this.allUsers = res;
           console.log(res)
         },
         error: err =>
@@ -64,24 +52,10 @@ export class UsersComponent {
         complete: () => {
         }
       })
+
   }
 
-  //getOneUser()
-  // {
-  //   this._UserService.getOneUsers(3).subscribe(
-  //     {
-  //       next: res => {
-  //         this.user = res;
-  //         console.log(this.user)
-  //       },
-  //       error: err =>
-  //       alert("err"),
-  //       complete: () => {
-  //       }
-  //     })
-  // }
-
-
+ 
     showAddBox()
     {
       let layer:any = document.getElementById("layer");
