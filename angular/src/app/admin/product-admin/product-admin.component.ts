@@ -12,22 +12,22 @@ export class ProductAdminComponent {
 
   addProductForm:FormGroup = new FormGroup(
     {
-      p_name: new FormControl('',[Validators.required,Validators.minLength(3), Validators.maxLength(20)]),
-      p_price: new FormControl('',[Validators.required]),
-      p_quantity:new FormControl('',[Validators.required]),
-      p_description:new FormControl('',[Validators.required]),
-      p_image:new FormControl('',[Validators.required]),
+      name: new FormControl('',[Validators.required,Validators.minLength(3), Validators.maxLength(20)]),
+      price: new FormControl('',[Validators.required]),
+      quantity:new FormControl('',[Validators.required]),
+      description:new FormControl('',[Validators.required]),
+      image:new FormControl('',[Validators.required]),
     }
   )
 
 
   updateProductForm:FormGroup = new FormGroup(
     {
-      p_name: new FormControl('',[Validators.required,Validators.minLength(3), Validators.maxLength(20)]),
-      p_price: new FormControl('',[Validators.required]),
-      p_quantity:new FormControl('',[Validators.required]),
-      p_description:new FormControl('',[Validators.required]),
-      p_image:new FormControl('',[Validators.required]),
+      name: new FormControl('',[Validators.required,Validators.minLength(3), Validators.maxLength(20)]),
+      price: new FormControl('',[Validators.required]),
+      quantity:new FormControl('',[Validators.required]),
+      description:new FormControl('',[Validators.required]),
+      image:new FormControl('',[Validators.required]),
     }
   )
   
