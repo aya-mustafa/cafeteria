@@ -22,6 +22,8 @@ export class LoginComponent {
 
 
   
+  
+
   login()
   {
 
@@ -32,12 +34,28 @@ export class LoginComponent {
       this.auth.login(this.loginForm.value).subscribe(
       {
         next: res => {
-          console.log("Yes")
+          console.log(this.loginForm.value)
+          // localStorage.setItem("token",res.token);
+          // let isAdmin:any = localStorage.getItem("isAdmin");
+          // if(isAdmin == "true")
+          // {
+          //   localStorage.setItem("Admin","true");
+          // }
+          // else
+          // {
+          //   localStorage.setItem("Admin","false");
+          // }
+    
         },
-        error: err =>
-        alert("err"),
+        error: err => alert("Error"),
         complete: () => {
         }
       })
+    }
+
+
+    navigate()
+    {
+      this._router.navigateByUrl('/register')
     }
 }
