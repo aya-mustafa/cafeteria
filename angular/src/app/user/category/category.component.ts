@@ -10,18 +10,18 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class CategoryComponent {
 
-  allCategory:any;
-  allProducts:any;
-  constructor(private _CategoryService: CategoryService, private _router:Router)
-  {
-    this._CategoryService.getAllCategory().subscribe((res)=>
-    {
-      this.allCategory = res;
-    })
-  }
+  // allCategory:any;
+  // allProducts:any;
+  // constructor(private _CategoryService: CategoryService, private _router:Router)
+  // {
+  //   this._CategoryService.getAllCategory().subscribe((res)=>
+  //   {
+  //     this.allCategory = res;
+  //   })
+  // }
 
-  getProductsRelatedToCategory(id:number)
-  {
-    this._router.navigateByUrl(`categoryDetails/${id}`)
-  }
+  // getProductsRelatedToCategory(id:number)
+  // {
+  //   this._router.navigateByUrl(`categoryDetails/${id}`)
+  // }
 }

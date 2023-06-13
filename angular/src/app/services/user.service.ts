@@ -10,8 +10,6 @@ export class UserService {
 
   constructor(private _http : HttpClient, private _router : Router) {
   }
-
-
   getAllUsers():Observable<any>
   {
     return this._http.get('http://localhost/cafeteria(Backend)/Cafe-Api/users/read.php');

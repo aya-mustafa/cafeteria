@@ -14,6 +14,7 @@ import { CategoryComponent } from './user/category/category.component';
 import { CategoryDetailsComponent } from './user/category-details/category-details.component';
 import { ProductDetailsComponent } from './user/product-details/product-details.component';
 import { UsersComponent } from './admin/users/users.component';
+import { ProductAdminComponent } from './admin/product-admin/product-admin.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'admin/users',component:UsersComponent},
+  {path:'admin/products',component:ProductAdminComponent},
   {path:'**',component:NotFoundComponent},
 ];
 
