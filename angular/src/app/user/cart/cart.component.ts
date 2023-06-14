@@ -9,28 +9,44 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartComponent {
 
   cartItems:any[]=[];
+  totalPrice:number=0;
   constructor(private _CartService : CartService)
   {
-    this.cartItems = this._CartService.items
+    this.cartItems = this._CartService.items;
+    this.getTotalPrice()
   }
-  quantity:number=1;
+  productQuantity:number=1;
   priceForOneProduct:any=15;
   totalPriceForOneProduct:any=this.priceForOneProduct
   plusQuantity(product:any)
   {
-    this.quantity++;
-    this.totalPriceForOneProduct=this.priceForOneProduct*this.quantity
+    product.p_quantity++;
+    product.price = product.p_quantity * product.price;
+    this.getTotalPrice()
   }
-  minusQuantity()
+  minusQuantity(product:any)
   {
-    if(this.quantity>1)
+    if(product.p_quantity>1)
     {
-      this.quantity--;
-    this.totalPriceForOneProduct=this.priceForOneProduct*this.quantity
+      product.p_quantity--;
+      product.price = product.p_quantity * product.price;
+      this.getTotalPrice()
     }
   }
+  resetCount(product:any)
+  {
+    product.p_quantity=1;
+    product.price = product.p_quantity * product.price;
+  }
 
 
+  getTotalPrice()
+  {
+    for(var i=0;i<this.cartItems.length;i++)
+    {
+      this.totalPrice+= Number(this.cartItems[i].price*this.cartItems[i].p_quantity);
+    }
+  }
 
   removeItem(product:any)
   {

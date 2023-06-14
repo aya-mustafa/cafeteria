@@ -11,40 +11,41 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductDetailsComponent {
 
-  // productDetails:any;
-  // allproducts:any=[];
-  // constructor(private _ProductService : ProductService,private _ActivatedRoute:ActivatedRoute, private _CartService: CartService)
-  // {
-  //   let id =_ActivatedRoute.snapshot.params["id"];
+  productDetails:any;
+  allproducts:any=[];
+  constructor(private _ProductService : ProductService,private _ActivatedRoute:ActivatedRoute, private _CartService: CartService)
+  {
+    let id =_ActivatedRoute.snapshot.params["id"];
 
 
-  //   this._ProductService.getAllproducts().subscribe((res)=>
-  //   {
-  //     this.allproducts = res;
+    this._ProductService.getAllProducts().subscribe((res)=>
+    {
+      this.allproducts = res.data;
+      console.log(this.allproducts)
 
-  //     for(var i=0;i<this.allproducts.length;i++)
-  //     {
-  //       if(id == this.allproducts[i].product_id)
-  //       {
-  //         this.productDetails = this.allproducts[i];
-  //         console.log(this.productDetails)
-  //       }
-  //     }
+      for(var i=0;i<this.allproducts.length;i++)
+      {
+        if(id == this.allproducts[i].p_id)
+        {
+          this.productDetails = this.allproducts[i];
+          console.log(this.productDetails)
+        }
+      }
   
-  //   })
-  // }
+    })
+  }
 
 
-  //   add()
-  //   {
-  //     this._CartService.addToCart(this.productDetails);
-  //     alert("Product added to Cart")
-  //   }
+    add()
+    {
+      this._CartService.addToCart(this.productDetails);
+      alert("Product added to Cart")
+    }
 
-  // addToCart()
-  // {
-  //   this.add();
-  // }
+  addToCart()
+  {
+    this.add();
+  }
 
 }
 

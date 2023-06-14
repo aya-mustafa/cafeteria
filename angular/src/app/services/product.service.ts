@@ -13,7 +13,7 @@ export class ProductService {
 
   getAllProducts():Observable<any>
   {
-    return this._http.get('');
+    return this._http.get('http://localhost/Cafe_project/controllers/product/products.php');
   }
   getOneProduct(id:number):Observable<any>
   {

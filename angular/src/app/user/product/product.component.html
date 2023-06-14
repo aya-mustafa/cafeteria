@@ -1,14 +1,17 @@
-<!-- <div class="container my-5">
+<div class="container my-5">
     <div class="row mb-3">
         <div class="col-md-3 mb-4" *ngFor="let product of allProducts">
-            <div class="card" >
+            <div class="card position-relative" >
               <div class="card-body">
-                <img class="img-fluid rounded" src="../../../assets/coffee-beans-with-props-making-coffee_1220-4536.jpg" alt="">
-                <h5 class="card-title mt-3">{{product.produt_name}}</h5>
-                <button (click)="goToDetails(product.product_id)" class=" me-3">Show Details</button>
+                <div class="layer">
+                  {{product.price}}
+                </div>
+                <img style="height: 200px;" class="w-100 rounded" [src]="product.p_image" alt="">
+                <h5 class="card-title mt-3">{{product.p_name}}</h5>
+                <button (click)="goToDetails(product.p_id)" class=" me-4">Show Details</button>
                 <button (click)="addToCart(product)"><i class="fa fa-shopping-cart"></i></button>
               </div>
             </div>
         </div>
     </div>
-</div> -->
+</div>
