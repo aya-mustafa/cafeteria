@@ -1,24 +1,66 @@
 <p>checks works!</p>
 <label for="dateFrom">Date from</label>
-<input type="date" name="dateFrom" id="">
+<input type="date" [(ngModel)]="dateFrom" (change)="changeDate()" name="dateFrom" id="">
 <br><br>
 <label for="dateTo">Date to</label>
-<input type="date" name="dateTo" id="">
+<input type="date" [(ngModel)]="dateTo" (change)="changeDate()" name="dateTo" id="">
 <br><br>
 <select class="form-select" aria-label="Default select example">
-    <option *ngFor="let user of users" value="1">{{user}}</option>
+    <option *ngFor="let name of allNames" value="1">{{name}}</option>
   </select>
-<div class="list-group">
-    <a *ngFor="let name of allNames"  class="list-group-item list-group-item-action">{{name}}</a>
-  
-  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Total amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let name of allNames" (click)="changeName(name)">
+        <td>{{name}}</td>
+        <td></td>
+
+      </tr>
+
+    </tbody>
+  </table>
+
 <br><br>
-  <div class="list-group">
-    <a *ngFor="let order of ordersDate"  class="list-group-item list-group-item-action">{{order}}</a>
-  
-  </div>
+
+<table class="table table-hover">
+  <thead *ngIf="ordersDate.length !=0">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Total amount</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of ordersDate" (click)="changeOrder(order)">
+      <td>{{order|date}}</td>
+      <td>{{orderPrice(order)}}</td>
+
+    </tr>
+
+  </tbody>
+</table>
+<br><br>
+<table class="table table-hover">
+  <thead *ngIf="orderPrice.length !=0">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Total amount</th>
+
+    </tr>
+  </thead>
+<tbody>
+  <tr *ngFor="let item of itemss" >
+    <td>{{item}}</td>
+    <td> {{itemPrice(item)}}</td>
+
+  </tr>
+
+</tbody>
+</table>
+
   <br><br>
-  <div class="list-group">
-    <a *ngFor="let item of itemss"  class="list-group-item list-group-item-action">{{item}}</a>
-  
-  </div>
