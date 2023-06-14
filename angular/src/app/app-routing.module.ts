@@ -15,6 +15,7 @@ import { CategoryDetailsComponent } from './user/category-details/category-detai
 import { ProductDetailsComponent } from './user/product-details/product-details.component';
 import { UsersComponent } from './admin/users/users.component';
 import { ProductAdminComponent } from './admin/product-admin/product-admin.component';
+import { AuthService } from './services/auth.service';
 
 
 const routes: Routes = [
@@ -22,16 +23,16 @@ const routes: Routes = [
   {path:'home',component:HeaderComponent},
   {path:'about',component:AboutComponent},
   {path:'contact',component:ContactComponent},
-  {path:'category',component:CategoryComponent},
-  {path:'categoryDetails/:id',component:CategoryDetailsComponent},
-  {path:'products',component:ProductComponent},
-  {path:'productDetails/:id',component:ProductDetailsComponent},
-  {path:'cart',component:CartComponent},
-  {path:'orders',component:OrdersComponent},
+  {path:'category',component:CategoryComponent,canActivate:[AuthService]},
+  {path:'categoryDetails/:id',component:CategoryDetailsComponent,canActivate:[AuthService]},
+  {path:'products',component:ProductComponent,canActivate:[AuthService]},
+  {path:'productDetails/:id',component:ProductDetailsComponent,canActivate:[AuthService]},
+  {path:'cart',component:CartComponent,canActivate:[AuthService]},
+  {path:'orders',component:OrdersComponent,canActivate:[AuthService]},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'admin/users',component:UsersComponent},
-  {path:'admin/products',component:ProductAdminComponent},
+  {path:'admin/users',component:UsersComponent,canActivate:[AuthService]},
+  {path:'admin/products',component:ProductAdminComponent,canActivate:[AuthService]},
   {path:'**',component:NotFoundComponent},
 ];
 

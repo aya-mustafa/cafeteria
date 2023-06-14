@@ -37,17 +37,17 @@ export class ProductAdminComponent {
 
   constructor( private _ProductService: ProductService)
   {
-    // this._ProductService.getAllProducts().subscribe(
-    //   {
-    //     next: res => {
-    //       this.allUsers = res;
-    //       console.log(res)
-    //     },
-    //     error: err =>
-    //     alert("err"),
-    //     complete: () => {
-    //     }
-    //   })
+    this._ProductService.getAllProducts().subscribe(
+      {
+        next: res => {
+          this.allUsers = res;
+          console.log(res)
+        },
+        error: err =>
+        alert("err"),
+        complete: () => {
+        }
+      })
   }
 
 

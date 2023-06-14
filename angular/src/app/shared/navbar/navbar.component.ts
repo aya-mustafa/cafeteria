@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +8,36 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+
+  
+  isLog:any;
+  isadmine:boolean = false;
+  constructor( private _authservice :AuthService,private _router:Router)
+  {
+
+    let cuurentUserSate = localStorage.getItem("Admin");
+    if(cuurentUserSate == "true")
+    {
+      this.isadmine = true;
+      console.log(this.isadmine)
+    }
+    else
+    {
+      this.isadmine = false;
+      console.log(this.isadmine)
+    }
+
+    this._authservice.isUserLogin()
+    this.isLog = this._authservice.isLogin;
+
+  }
+
+
+  logOut()
+  {
+    localStorage.removeItem("token");
+    this._router.navigateByUrl("/login");
+    location.replace('/login')
+  }
 
 }

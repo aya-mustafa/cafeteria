@@ -31,7 +31,7 @@ export class RegisterComponent {
       this.auth.signUp(this.regestrationForm.value).subscribe(
       {
         next: res => {
-          this._router.navigateByUrl('/user/login')
+          this._router.navigateByUrl('/login')
         },
         error: err => alert(err.error.message),
         complete: () => {

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-// import jwtDecode from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -34,31 +34,32 @@ export class AuthService {
      {
         return true;
      }
-     this._router.navigateByUrl("/user/login")
+     this._router.navigateByUrl("/login")
          return false;
    }
 
 
-  //  isAdmine:boolean = false;
-  //  saveCrrentUser()
-  //  {
-  //    let encryptedToken:any = localStorage.getItem("token");
-  //    console.log(encryptedToken);
-  //    let decriptedToken:any = jwtDecode(encryptedToken);
-  //    localStorage.setItem("isAdmin",decriptedToken.isAdmin);
-  //  }
+   isAdmine:number = 0;
+   saveCrrentUser()
+   {
+     let encryptedToken:any = localStorage.getItem("token");
+     console.log(encryptedToken);
+     let decriptedToken:any = jwtDecode(encryptedToken);
+     console.log(decriptedToken);
+    localStorage.setItem("isAdmin",decriptedToken.isAdmin);
+   }
   
 
 
   signUp(signData:any):Observable<any>
   {
     console.log(signData)
-     return this._http.post('',signData);
+     return this._http.post('http://localhost/cafe_project/controllers/auth/register.php',signData);
   }
 
   login(loginData:any):Observable<any>
   {
-    return this._http.post('http://localhost/cafeteria(Backend)/Cafe-Api/auth/login.php',loginData);
+    return this._http.post('http://localhost/cafe_project/controllers/auth/login.php',loginData);
   }
 
 

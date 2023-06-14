@@ -34,20 +34,27 @@ export class LoginComponent {
       this.auth.login(this.loginForm.value).subscribe(
       {
         next: res => {
-          console.log(this.loginForm.value)
-          // localStorage.setItem("token",res.token);
-          // let isAdmin:any = localStorage.getItem("isAdmin");
-          // if(isAdmin == "true")
-          // {
-          //   localStorage.setItem("Admin","true");
-          // }
-          // else
-          // {
-          //   localStorage.setItem("Admin","false");
-          // }
+          console.log("res",res.token)
+          localStorage.setItem("token",res.token);
+          this.auth.saveCrrentUser();
+          let isAdmin:any = localStorage.getItem("isAdmin");
+          console.log(isAdmin);
+          console.log(typeof isAdmin);
+          if(isAdmin == "1")
+          {
+            this._router.navigateByUrl('/admin/products');
+            location.replace('/admin/products')
+            localStorage.setItem("Admin","true");
+          }
+          else
+          {
+            this._router.navigateByUrl('/products');
+            location.replace('/products')
+            localStorage.setItem("Admin","false");
+          }
     
         },
-        error: err => alert("Error"),
+        error: err => alert(alert("Invalid Email or password")),
         complete: () => {
         }
       })

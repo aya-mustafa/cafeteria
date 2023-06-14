@@ -16,26 +16,26 @@
                 <a class="nav-link" routerLink="contact">Contact</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" routerLink="products">Products</a>
+                <a *ngIf="isLog&&!isadmine" class="nav-link" routerLink="products">Products</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" routerLink="admin/users">Admine User</a>
+                <a  *ngIf="isLog&&isadmine" class="nav-link" routerLink="admin/users">Admine User</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" routerLink="admin/products">Admine products</a>
+                <a  *ngIf="isLog&&isadmine" class="nav-link" routerLink="admin/products">Admine products</a>
+            </li>
+            <li  class="nav-item ">
+                <a  *ngIf="isLog&&!isadmine" class="nav-link" routerLink="cart">Cart</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" routerLink="cart">Cart</a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link" routerLink="orders">My orders</a>
+                <a   *ngIf="isLog&&!isadmine" class="nav-link" routerLink="orders">My orders</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
-                    <a   class="dropdown-item" routerLink="login" >Login</a>
-                    <a   class="dropdown-item" routerLink="register" >Register</a>
-                    <a   class="dropdown-item"  >logOut</a>
+                    <a *ngIf="!isLog"  class="dropdown-item" routerLink="login" >Login</a>
+                    <a  *ngIf="!isLog" class="dropdown-item" routerLink="register" >Register</a>
+                    <a *ngIf="isLog" (click)="logOut()"  class="dropdown-item"  >logOut</a>
                 </div>
             </li>
         </ul>
