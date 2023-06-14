@@ -1,0 +1,33 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AdminService {
+
+  constructor(private _HttpClient:HttpClient ) { }
+
+  getAllProducts():Observable<any>
+  {
+    return this._HttpClient.get('http://localhost/PHP/devpro/Cafe-Api/controllers/product/products.php');
+  }
+  // getOneUsers(id:number):Observable<any>
+  // {
+  //   return this._http.get(`http://localhost/cafeteria(Backend)/Cafe-Api/users/read.php/?id=${id}`);
+  // }
+  addProduct(data:any):Observable<any>
+  {
+    return this._HttpClient.post(`http://localhost/PHP/devpro/Cafe-Api/controllers/product/create_product.php`,data);
+  }
+  updateProduct(id:number,updatedData:any):Observable<any>
+  {
+    return this._HttpClient.put(`http://localhost/PHP/devpro/Cafe-Api/controllers/product/update_product.php?id=${id}`,updatedData);
+  }
+  deleteProduct(id:number):Observable<any>
+  {
+    return this._HttpClient.delete(`http://localhost/PHP/devpro/Cafe-Api/controllers/product/delete_product.php?id=${id}`);
+  }
+
+}

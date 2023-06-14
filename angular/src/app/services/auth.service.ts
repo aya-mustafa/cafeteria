@@ -53,12 +53,12 @@ export class AuthService {
   signUp(signData:any):Observable<any>
   {
     console.log(signData)
-     return this._http.post('',signData);
+     return this._http.post('http://localhost/PHP/devpro/Cafe-Api/controllers/auth/register.php',signData);
   }
 
   login(loginData:any):Observable<any>
   {
-    return this._http.post('http://localhost/cafeteria(Backend)/Cafe-Api/auth/login.php',loginData);
+    return this._http.post('http://localhost/PHP/devpro/Cafe-Api/controllers/auth/login.php',loginData);
   }
 
 

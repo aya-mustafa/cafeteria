@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ProductService } from 'src/app/services/product.service';
-
+import { AdminService } from 'src/app/services/admin.service';
 @Component({
   selector: 'app-product-admin',
   templateUrl: './product-admin.component.html',
@@ -31,16 +30,22 @@ export class ProductAdminComponent {
     }
   )
   
-  user:any;
-  allUsers:any;
+  product:any;
+  products!:any[];
   updatedCurrentElementId:any;
 
-  constructor( private _ProductService: ProductService)
+  constructor( private _AdminService: AdminService)
   {
+
+    this._AdminService.getAllProducts().subscribe((res=>{
+      this.products=res.data
+      // console.log(this.products);
+      
+    }))
     // this._ProductService.getAllProducts().subscribe(
     //   {
     //     next: res => {
-    //       this.allUsers = res;
+    //       this.products = res;
     //       console.log(res)
     //     },
     //     error: err =>
@@ -65,9 +70,19 @@ export class ProductAdminComponent {
 
   addProduct()
   {
-    this._ProductService.addProduct(this.addProductForm.value).subscribe(
+    // this._AdminService.addProduct(this.addProductForm.value).subscribe((res)=>{
+    //   this.products=res.data.product
+    //     console.log(this.products);
+
+    // }
+    // console.log(this.addProductForm.value);
+    
+        this._AdminService.addProduct(this.addProductForm.value).subscribe(
+
       {
         next: res => {
+          console.log(res);
+          
           console.log("added Succssfully")
         },
         error: err =>
@@ -75,6 +90,8 @@ export class ProductAdminComponent {
         complete: () => {
         }
       })
+        
+    // )
   }
 
 
@@ -92,7 +109,7 @@ export class ProductAdminComponent {
 
   updateProduct()
   {
-    this._ProductService.updateProduct(2,this.updateProductForm.value).subscribe(
+    this._AdminService.updateProduct(2,this.updateProductForm.value).subscribe(
       {
         next: res => {
           console.log("updated Succssfully")
@@ -106,7 +123,7 @@ export class ProductAdminComponent {
   deleteProduct(id:any)
   {
     console.log(id)
-    this._ProductService.deleteProduct(id).subscribe(
+    this._AdminService.deleteProduct(id).subscribe(
       {
         next: res => {
           console.log("deleted Succssfully")
