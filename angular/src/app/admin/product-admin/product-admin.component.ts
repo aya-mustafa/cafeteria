@@ -8,7 +8,6 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class ProductAdminComponent {
 
-
   addProductForm:FormGroup = new FormGroup(
     {
       name: new FormControl('',[Validators.required,Validators.minLength(3), Validators.maxLength(20)]),
@@ -30,6 +29,8 @@ export class ProductAdminComponent {
     }
   )
   
+  
+  imageFile!:File;
   product:any;
   products!:any[];
   updatedCurrentElementId:any;
@@ -39,7 +40,7 @@ export class ProductAdminComponent {
 
     this._AdminService.getAllProducts().subscribe((res=>{
       this.products=res.data
-      // console.log(this.products);
+      
       
     }))
     // this._ProductService.getAllProducts().subscribe(
@@ -70,16 +71,19 @@ export class ProductAdminComponent {
 
   addProduct()
   {
-    // this._AdminService.addProduct(this.addProductForm.value).subscribe((res)=>{
-    //   this.products=res.data.product
-    //     console.log(this.products);
+    const formdata=new FormData();
+      formdata.append('name',this.addProductForm.get('name')?.value)
+      formdata.append('price',this.addProductForm.get('price')?.value)
+      formdata.append('quantity',this.addProductForm.get('quantity')?.value)
+      formdata.append('image',this.imageFile)
+      
 
-    // }
-    // console.log(this.addProductForm.value);
+    console.log(this.addProductForm.value);
     
-        this._AdminService.addProduct(this.addProductForm.value).subscribe(
+        this._AdminService.addProduct(formdata).subscribe(
 
       {
+        
         next: res => {
           console.log(res);
           
@@ -93,7 +97,18 @@ export class ProductAdminComponent {
         
     // )
   }
+  addphoto(event:any)
+  {     
+     console.log(event.target);
+     console.log(this.addProductForm);
 
+    if(event.target.files.length>0){
+       this.imageFile=event.target.files[0];
+       this.addProductForm.patchValue({
+         image:this.imageFile
+       });
+  }
+  }
 
   showUpdateBox(id:any)
     {
@@ -109,7 +124,16 @@ export class ProductAdminComponent {
 
   updateProduct()
   {
-    this._AdminService.updateProduct(2,this.updateProductForm.value).subscribe(
+    const formdata=new FormData();
+      formdata.append('name',this. updateProductForm.get('name')?.value)
+      formdata.append('price',this. updateProductForm.get('price')?.value)
+      formdata.append('quantity',this. updateProductForm.get('quantity')?.value)
+      formdata.append('image',this.imageFile)
+      // console.log(formdata);
+      console.log(this.updateProductForm.value);
+      console.log(this.updatedCurrentElementId);
+      
+    this._AdminService.updateProduct(this.updatedCurrentElementId,formdata).subscribe(
       {
         next: res => {
           console.log("updated Succssfully")

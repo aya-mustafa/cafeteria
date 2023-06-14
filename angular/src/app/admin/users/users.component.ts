@@ -99,7 +99,7 @@ export class UsersComponent {
 
   updateUser()
   {
-    this._UserService.updateUser(2,this.updateUserForm.value).subscribe(
+    this._UserService.updateUser(this.updatedCurrentElementId,this.updateUserForm.value).subscribe(
       {
         next: res => {
           console.log("updated Succssfully")
