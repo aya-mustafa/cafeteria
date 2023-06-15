@@ -40,18 +40,21 @@ export class UsersComponent {
   constructor( private _UserService: UserService)
   {
 
-
-    this._UserService.getAllUsers().subscribe(
-      {
-        next: res => {
-          this.allUsers = res;
-          console.log(res)
-        },
-        error: err =>
-        alert("err"),
-        complete: () => {
-        }
-      })
+    this._UserService.getAllUsers().subscribe((data=>{
+      this.allUsers=data
+      console.log(data);
+      
+    }))
+      // {
+      //   next: res => {
+      //     this.allUsers = res;
+      //     console.log(res)
+      //   },
+      //   error: err =>
+      //   alert("err"),
+      //   complete: () => {
+      //   }
+      // })
 
   }
 
@@ -96,7 +99,7 @@ export class UsersComponent {
 
   updateUser()
   {
-    this._UserService.updateUser(2,this.updateUserForm.value).subscribe(
+    this._UserService.updateUser(this.updatedCurrentElementId,this.updateUserForm.value).subscribe(
       {
         next: res => {
           console.log("updated Succssfully")

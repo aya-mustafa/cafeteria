@@ -12,7 +12,14 @@
             <th class="py-2">Action</th>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let order of orders" >
+                <td>{{order.date}}</td>
+                <td>{{order.status}}</td>
+                <td>{{order.orderID}}</td>
+                <td>{{order.userID}}</td>
+                <td>CANCEL</td>
+            </tr>
+            <!-- <tr>
                 <td>23-9-2022 10.20pm</td>
                 <td>Processing</td>
                 <td>15EGp</td>
@@ -35,7 +42,7 @@
                 <td>Processing</td>
                 <td>15EGp</td>
                 <td>CANCEL</td>
-            </tr>
+            </tr> -->
         </tbody>
         <tfoot>
             <td></td>

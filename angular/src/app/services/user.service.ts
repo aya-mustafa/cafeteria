@@ -12,22 +12,22 @@ export class UserService {
   }
   getAllUsers():Observable<any>
   {
-    return this._http.get('http://localhost/cafeteria(Backend)/Cafe-Api/users/read.php');
+    return this._http.get('http://localhost/cafe_project/controllers/users/read.php');
   }
-  getOneUsers(id:number):Observable<any>
-  {
-    return this._http.get(`http://localhost/cafeteria(Backend)/Cafe-Api/users/read.php/?id=${id}`);
-  }
+  // getOneUsers(id:number):Observable<any>
+  // {
+  //   return this._http.get(`http://localhost/cafeteria(Backend)/Cafe-Api/users/read.php/?id=${id}`);
+  // }
   addUser(data:any):Observable<any>
   {
-    return this._http.post(`http://localhost/cafeteria(Backend)/Cafe-Api/users/create.php`,data);
+    return this._http.post(`http://localhost/cafe_project/controllers/users/create.php`,data);
   }
   updateUser(id:number,updatedData:any):Observable<any>
   {
-    return this._http.put(`http://localhost/cafeteria(Backend)/Cafe-Api/users/update.php/?id=${id}`,updatedData);
+    return this._http.put(`http://localhost/cafe_project/controllers/users/update.php?id=${id}`,updatedData);
   }
   deleteUser(id:number):Observable<any>
   {
-    return this._http.delete(`http://localhost/cafeteria(Backend)/Cafe-Api/users/delete.php/?id=${id}`);
+    return this._http.delete(`http://localhost/cafe_project/controllers/users/delete.php?id=${id}`);
   }
 }

@@ -10,12 +10,29 @@
                 <thead class="mb-3">
                     <th>Name</th>
                     <th>Image</th>
-                    <th>Room</th>
-                    <th>Ext</th>
+                    <th>Quentity</th>
+                    <th>Price</th>
                     <th>Action</th>
                 </thead>
                 <div class="py-2"></div>
                 <tbody>
+                    <tr  *ngFor="let product of products">
+
+                        <td >{{product.p_name}}</td>
+                        <td>
+                            <img style="width:100px;height:100px;" [src]="product.p_image" alt="userImage">
+                        </td> 
+                        <td>{{product.p_quantity}}</td> 
+                        <td>{{product.price}}</td>
+                        <td>
+                            <a (click)="showUpdateBox(product.p_id)">
+                                <i class="fa-solid fa-pen me-3 mt-4"></i>
+                            </a>
+                            <a (click)="deleteProduct(product.p_id)">
+                                <i class="fa-regular fa-trash-can mt-4"></i>
+                            </a>
+                        </td>
+                    </tr>
                 </tbody>
              </table>
         </div>
@@ -32,22 +49,16 @@
     <h3 class="mt-4">Add product</h3>
     <form  [formGroup]="addProductForm" (ngSubmit)="addProduct()" class="py-4">
         <div class="form-group mb-4">
-            <input type="text" class="form-control my-2 bg-transparent" placeholder="Enter product Name" formControlName="name">
+            <input type="text" class="form-control my-2 bg-transparent"  placeholder="Enter product Name" formControlName="name">
         </div>
         <div class="form-group mb-4">
-            <input type="text" class="form-control my-2 bg-transparent" placeholder="Enter product Email" formControlName="email">
+            <input type="text" class="form-control my-2 bg-transparent" placeholder="Enter price" formControlName="price">
         </div>
         <div class="form-group mb-4">
-            <input type="password" class="form-control my-2 bg-transparent" placeholder="Enter product password" formControlName="password">
+            <input type="number" class="form-control my-2 bg-transparent" placeholder="Enter quantity " formControlName="quantity">
         </div>
         <div class="form-group mb-4">
-            <input type="number" class="form-control my-2 bg-transparent" placeholder="Enter product Room" formControlName="room_number">
-        </div>
-        <div class="form-group mb-4">
-            <input type="number" class="form-control my-2 bg-transparent" placeholder="Enter product Exit" formControlName="ext">
-        </div>
-        <div class="form-group mb-4">
-            <input type="file" class="form-control my-2 bg-transparent" placeholder="Enter product Image" formControlName="image">
+            <input type="file" class="form-control my-2 bg-transparent" enctype="multipart/form-data" placeholder="Enter product Image" formControlName="image">
         </div>
         <button   type="submit" class="btn">Add product</button>
     </form>
@@ -64,19 +75,13 @@
             <input type="text" class="form-control my-2 bg-transparent" placeholder="Enter product Name" formControlName="name">
         </div>
         <div class="form-group mb-4">
-            <input type="text" class="form-control my-2 bg-transparent" placeholder="Enter product Email" formControlName="email">
+            <input type="text" class="form-control my-2 bg-transparent" placeholder="Enter price" formControlName="price">
         </div>
         <div class="form-group mb-4">
-            <input type="password" class="form-control my-2 bg-transparent" placeholder="Enter product password" formControlName="password">
+            <input type="number" class="form-control my-2 bg-transparent" placeholder="Enter quantity" formControlName="quantity">
         </div>
         <div class="form-group mb-4">
-            <input type="number" class="form-control my-2 bg-transparent" placeholder="Enter product Room" formControlName="room_number">
-        </div>
-        <div class="form-group mb-4">
-            <input type="number" class="form-control my-2 bg-transparent" placeholder="Enter product Exit" formControlName="ext">
-        </div>
-        <div class="form-group mb-4">
-            <input type="file" class="form-control my-2 bg-transparent" placeholder="Enter User Image" formControlName="image">
+            <input type="file" class="form-control my-2 bg-transparent" enctype="multipart/form-data"  placeholder="Enter Product Image" formControlName="image">
         </div>
         <button   type="submit" class="btn">Update product</button>
     </form>
