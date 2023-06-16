@@ -18,7 +18,7 @@
     <tbody>
       <tr *ngFor="let name of allNames" (click)="changeName(name)">
         <td>{{name}}</td>
-        <td></td>
+        <td>{{totalUser(name)}}</td>
 
       </tr>
 
@@ -56,7 +56,7 @@
 <tbody>
   <tr *ngFor="let item of itemss" >
     <td>{{item}}</td>
-    <td> {{itemPrice(item)}}</td>
+    <td>{{itemPrice(item)[1]}} X {{itemPrice(item)[0]}}</td>
 
   </tr>
 

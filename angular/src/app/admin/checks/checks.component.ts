@@ -150,8 +150,10 @@ export class ChecksComponent {
 
   itemPrice(name: string){
     let price = this.filteredWithOrder.find(x=> x.name === name)?.price;
+    let quantity = this.filteredWithOrder.find(x=> x.name === name)?.quantity;
 
-   return price;
+
+   return [price,quantity];
   }
 
   orderPrice(date: Date){
@@ -167,6 +169,11 @@ export class ChecksComponent {
   }
 
   totalUser(name:string){
-    
+    let total = 0;
+    for(let order of this.ordersDate){
+      let row = this.users.find(x => x.user_name == name && x.date == order);
+      total += Number(this.orderPrice(row?.date||new Date('1950'))||0);
+    }
+    return total;
   }
 }
