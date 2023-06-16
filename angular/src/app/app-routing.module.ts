@@ -16,6 +16,7 @@ import { ProductDetailsComponent } from './user/product-details/product-details.
 import { UsersComponent } from './admin/users/users.component';
 import { ProductAdminComponent } from './admin/product-admin/product-admin.component';
 import { AuthService } from './services/auth.service';
+import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path:'orders',component:OrdersComponent,canActivate:[AuthService]},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
+  {path : "forgetPassword", component : ForgetPasswordComponent},
   {path:'admin/users',component:UsersComponent,canActivate:[AuthService]},
   {path:'admin/products',component:ProductAdminComponent,canActivate:[AuthService]},
   {path:'**',component:NotFoundComponent},

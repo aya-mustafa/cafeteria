@@ -6,9 +6,19 @@ import { Injectable } from '@angular/core';
 export class CartService {
 
 
-  items:any[]= JSON.parse(localStorage.getItem('items')!);
+  items:any[]=[];
   constructor() 
-  { }
+  { 
+
+    let  localStorageItem:any = localStorage.getItem('items');
+    if(localStorageItem)
+    {
+      this.items= JSON.parse(localStorage.getItem('items')!);
+    }
+
+  }
+
+
 
   addToCart(product:any)
   {
