@@ -47,6 +47,8 @@ export class AuthService {
      let decriptedToken:any = jwtDecode(encryptedToken);
      console.log(decriptedToken);
     localStorage.setItem("isAdmin",decriptedToken.isAdmin);
+    localStorage.setItem("userName",decriptedToken.username);
+    localStorage.setItem("userId",decriptedToken.id);
    }
   
 

@@ -165,8 +165,8 @@ console.log(this.addProductForm);
         next: res => {
           console.log("deleted Succssfully")
         },
-        error: err =>
-        console.log(err),
+        error: err =>  
+         location.replace('/admin/products'),
         complete: () => {
         }
       })

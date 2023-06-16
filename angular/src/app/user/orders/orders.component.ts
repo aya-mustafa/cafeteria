@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-orders',
@@ -8,9 +9,15 @@ import { Component } from '@angular/core';
 export class OrdersComponent {
 
 
-  constructor()
+  constructor(private _OrderService :OrderService)
   {
+ 
+
+
   }
+
+
+
 
   orders:any[]=
   [

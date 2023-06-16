@@ -13,23 +13,26 @@ export class CartComponent {
   constructor(private _CartService : CartService)
   {
     this.cartItems = this._CartService.items;
-    this.getTotalPrice()
+   this.getTotalPrice()
   }
   productQuantity:number=1;
   priceForOneProduct:any=15;
-  totalPriceForOneProduct:any=this.priceForOneProduct
+
+ totalPriceForOneProduct:any=this.priceForOneProduct
   plusQuantity(product:any)
   {
+    let price = Number(product.price);
     product.p_quantity++;
-    product.price = product.p_quantity * product.price;
+    price = product.p_quantity*price;
     this.getTotalPrice()
   }
   minusQuantity(product:any)
   {
     if(product.p_quantity>1)
     {
+      let price = Number(product.price);
       product.p_quantity--;
-      product.price = product.p_quantity * product.price;
+      price = product.p_quantity*price;
       this.getTotalPrice()
     }
   }
@@ -44,7 +47,8 @@ export class CartComponent {
   {
     for(var i=0;i<this.cartItems.length;i++)
     {
-      this.totalPrice+= Number(this.cartItems[i].price*this.cartItems[i].p_quantity);
+      //console.log(this.cartItems[i].price)
+      this.totalPrice+= Number(this.cartItems[i].price);
     }
   }
 
