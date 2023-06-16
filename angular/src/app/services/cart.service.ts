@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class CartService {
 
 
-  items:any[]= JSON.parse(localStorage.getItem('items')!);
+  items:any[]=JSON.parse(localStorage.getItem('items')!);
   constructor() 
   { }
 

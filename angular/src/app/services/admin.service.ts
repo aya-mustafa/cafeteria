@@ -21,9 +21,11 @@ export class AdminService {
   {
     return this._HttpClient.post(`http://localhost/cafe_project/controllers/product/create_product.php`,data);
   }
-  updateProduct(id:number,updatedData:any):Observable<any>
+  updateProduct(updatedData:any):Observable<any>
   {
-    return this._HttpClient.put(`http://localhost/cafe_project/controllers/product/update_product.php?id=${id}`,updatedData);
+    console.log(updatedData);
+    
+    return this._HttpClient.post(`http://localhost/cafe_project/controllers/product/update_product.php`,updatedData);
   }
   deleteProduct(id:number):Observable<any>
   {

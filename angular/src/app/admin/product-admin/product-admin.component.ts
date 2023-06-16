@@ -26,6 +26,7 @@ export class ProductAdminComponent {
       quantity:new FormControl('',[Validators.required]),
       description:new FormControl('',[Validators.required]),
       image:new FormControl('',[Validators.required]),
+      product_id:new FormControl('',[Validators.required]),
     }
   )
   
@@ -33,6 +34,8 @@ export class ProductAdminComponent {
   imageFile!:File;
   product:any;
   products!:any[];
+  currentPage = 1; // start with the first page
+  itemsPerPage = 4; // show 5 items per page
   updatedCurrentElementId:any;
 
   constructor( private _AdminService: AdminService)
@@ -78,8 +81,8 @@ export class ProductAdminComponent {
       formdata.append('image',this.imageFile)
       
 
-    console.log(this.addProductForm.value);
-    
+      console.log(formdata);
+
         this._AdminService.addProduct(formdata).subscribe(
 
       {
@@ -99,15 +102,23 @@ export class ProductAdminComponent {
   }
   addphoto(event:any)
   {     
-     console.log(event.target);
-     console.log(this.addProductForm);
+    //  console.log(event.target);
+    //  console.log(this.addProductForm);
+console.log(this.addProductForm);
 
     if(event.target.files.length>0){
+
        this.imageFile=event.target.files[0];
+      //  console.log(this.imageFile);
+       
        this.addProductForm.patchValue({
          image:this.imageFile
        });
+
+       console.log(this.addProductForm);
+
   }
+
   }
 
   showUpdateBox(id:any)
@@ -125,18 +136,20 @@ export class ProductAdminComponent {
   updateProduct()
   {
     const formdata=new FormData();
-      formdata.append('name',this. updateProductForm.get('name')?.value)
-      formdata.append('price',this. updateProductForm.get('price')?.value)
-      formdata.append('quantity',this. updateProductForm.get('quantity')?.value)
+      formdata.append('name',this.updateProductForm.get('name')?.value)
+      formdata.append('price',this.updateProductForm.get('price')?.value)
+      formdata.append('quantity',this.updateProductForm.get('quantity')?.value)
+      formdata.append('product_id',this.updateProductForm.get('product_id')?.value)
       formdata.append('image',this.imageFile)
-      // console.log(formdata);
-      console.log(this.updateProductForm.value);
-      console.log(this.updatedCurrentElementId);
+
+      console.log(formdata.get('name'));
       
-    this._AdminService.updateProduct(this.updatedCurrentElementId,formdata).subscribe(
+    this._AdminService.updateProduct(formdata).subscribe(
       {
         next: res => {
           console.log("updated Succssfully")
+          console.log(res);
+          
         },
         error: err =>
         console.log(err),

@@ -10,6 +10,8 @@ import { UserService } from 'src/app/services/user.service';
 export class UsersComponent {
 
 
+  currentPage = 1; // start with the first page
+  itemsPerPage = 4; // show 5 items per page
   addUserForm:FormGroup = new FormGroup(
     {
       name: new FormControl('',[Validators.required,Validators.minLength(3), Validators.maxLength(20)]),

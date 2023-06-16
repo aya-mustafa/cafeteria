@@ -16,7 +16,7 @@
                 </thead>
                 <div class="py-2"></div>
                 <tbody>
-                    <tr  *ngFor="let user of allUsers">
+                    <tr  *ngFor="let user of allUsers  | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage } ">
 
                         <td >{{user.name}}</td>
                         <td>
@@ -34,6 +34,9 @@
                         </td>
                     </tr>
                 </tbody>
+                <div class="text-center paginationNav mt-2">
+                    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+                </div>
              </table>
         </div>
       </div>

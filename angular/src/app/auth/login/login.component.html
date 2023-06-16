@@ -24,6 +24,9 @@
                 </div>
                 <button [disabled]="loginForm.status=='INVALID'"  type="submit" class="btn">Login</button>
                 <span class="ms-4"><a (click)="navigate()">Do have account <span class="navigate">plz Register?</span></a></span>
+                <div class="col-auto">
+                    <a routerLink="/forgetpassword">Forgot Password?</a>
+                </div>
             </form>
         </div>
 
