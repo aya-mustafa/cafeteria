@@ -1,1 +1,66 @@
 <p>checks works!</p>
+<label for="dateFrom">Date from</label>
+<input type="date" [(ngModel)]="dateFrom" (change)="changeDate()" name="dateFrom" id="">
+<br><br>
+<label for="dateTo">Date to</label>
+<input type="date" [(ngModel)]="dateTo" (change)="changeDate()" name="dateTo" id="">
+<br><br>
+<select class="form-select" aria-label="Default select example">
+    <option *ngFor="let name of allNames" value="1">{{name}}</option>
+  </select>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Total amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let name of allNames" (click)="changeName(name)">
+        <td>{{name}}</td>
+        <td>{{totalUser(name)}}</td>
+
+      </tr>
+
+    </tbody>
+  </table>
+
+<br><br>
+
+<table class="table table-hover">
+  <thead *ngIf="ordersDate.length !=0">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Total amount</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of ordersDate" (click)="changeOrder(order)">
+      <td>{{order|date}}</td>
+      <td>{{orderPrice(order)}}</td>
+
+    </tr>
+
+  </tbody>
+</table>
+<br><br>
+<table class="table table-hover">
+  <thead *ngIf="orderPrice.length !=0">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Total amount</th>
+
+    </tr>
+  </thead>
+<tbody>
+  <tr *ngFor="let item of itemss" >
+    <td>{{item}}</td>
+    <td>{{itemPrice(item)[1]}} X {{itemPrice(item)[0]}}</td>
+
+  </tr>
+
+</tbody>
+</table>
+
+  <br><br>
