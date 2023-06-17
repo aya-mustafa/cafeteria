@@ -1,1 +1,62 @@
-<p>admin-orders works!</p>
+<div class="container mb-5">
+    <h3 class="my-4">My Orders</h3>
+  
+    <input type="date" [(ngModel)]="dateFrom" (change)="changeDate()" name="dateFrom" id="">
+  
+    <input type="date" [(ngModel)]="dateTo" (change)="changeDate()" name="dateTo" id="">
+  
+  
+    <table class="table table-bordered text-center">
+      <thead>
+        <th class="py-2">Name</th>
+        <th class="py-2">Order Date</th>
+        <th class="py-2">Status</th>
+        <th class="py-2">Room</th>
+        <th class="py-2">Ext</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.user.name }}</td>
+          <td (click)="showProducts(order.orderID)">{{ order.date }}</td>
+          <td>{{ order.status }}</td>
+          <td>{{ order.user.room_number }}</td>
+          <td>{{ order.user.ext }}</td>
+
+ 
+        </tr>
+      </tbody>
+      <tfoot>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="py-2">Total {{ addTotalAmount(orders) }} EGP</td>
+      </tfoot>
+    </table>
+  
+    <!-- ---------------------------------------------------------------------------------------------------------------- -->
+    <table
+      *ngIf="showTable"
+      class="table table-bordered text-center product-table"
+    >
+      <thead>
+        <th class="py-2">Name</th>
+        <th class="py-2">Image</th>
+  
+        <th class="py-2">Price</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.name }}</td>
+          <td><img [src]="product.image" alt="" /></td>
+          <td>{{ product.price }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="py-2">Total {{ addTotalAmount(products) }} EGP</td>
+      </tfoot>
+    </table>
+  </div>
+  
