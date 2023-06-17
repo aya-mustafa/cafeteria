@@ -24,7 +24,7 @@ export class UserService {
   }
   updateUser(id:number,updatedData:any):Observable<any>
   {
-    return this._http.put(`http://localhost/cafe_project/controllers/users/update.php?id=${id}`,updatedData);
+    return this._http.post(`http://localhost/cafe_project/controllers/users/update.php?id=${id}`,updatedData);
   }
   deleteUser(id:number):Observable<any>
   {
