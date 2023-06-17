@@ -16,47 +16,7 @@ export class ChecksComponent {
   date1 = new Date('2023-05-02');
   date3 = new Date('2023-08-04');
 
-  // originalUsers = [
-  //   {
-  //     user_name:"ahmed",
-  //     orderDate: this.date0,
-  //     orderPrice:"10",
-  //     totalOfOrdersPrices: "25",
-  //     orderItem:"tea"
-      
-  //   },
-  //   {
-  //     name:"ahmed",
-  //     orderDate: this.date0,
-  //     orderPrice:"15",
-  //     totalOfOrdersPrices: "25",
-  //     orderItem:"cofe"  
-  //   },
-  //   {
-  //     name:"ahmed",
-  //     orderDate: this.date1,
-  //     orderPrice:"50",
-  //     totalOfOrdersPrices: "65",
-  //     orderItem:"pizza"
-      
-  //   },
-  //   {
-  //     name:"ahmed",
-  //     orderDate: this.date1,
-  //     orderPrice:"15",
-  //     totalOfOrdersPrices: "65",
-  //     orderItem:"burger"  
-  //   },
-  //   {
-  //     name:"sami",
-  //     orderDate: this.date3,
-  //     orderPrice:"40",
-  //     totalOfOrdersPrices: "40",
-  //     orderItem:"hotdog"  
-  //   }
 
-  // ];
-  // users = this.originalUsers;
   originalUsers!: Checks[]
   users!: Checks[];
   userName = "";
@@ -121,6 +81,7 @@ export class ChecksComponent {
 
  }
   
+
 
 
   changeName($name: string){

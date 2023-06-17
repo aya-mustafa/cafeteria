@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -6,10 +8,23 @@ import { Injectable } from '@angular/core';
 export class CartService {
 
 
-  items:any[]=JSON.parse(localStorage.getItem('items')!);
-  constructor() 
-  { 
+  items:any[]= [];
 
+  id: any
+
+  constructor(private _HttpClient:HttpClient) 
+  { 
+    
+    
+    //Get user Id
+    let idFromLoacalStorge = localStorage.getItem("userId");
+    let idOfCurrentUser = (Number(idFromLoacalStorge ))
+    
+
+    this.id = idOfCurrentUser;
+
+
+    // Get cart items
     let  localStorageItem:any = localStorage.getItem('items');
     if(localStorageItem)
     {
@@ -30,4 +45,26 @@ export class CartService {
     this.items.splice(item,1);
     localStorage.setItem('items',JSON.stringify(this.items));
   }
+
+  addOrder (): Observable<any> {
+
+    console.log(this.items);
+
+    console.log(this.id);
+    
+    const filteredProducts = this.items.map(({p_id,p_quantity }) => {
+
+      return {id: p_id, quantity: p_quantity};
+      
+    } )
+
+    console.log(filteredProducts);
+    
+    
+
+    return this._HttpClient.post(`http://localhost/cafe_project/controllers/orders/addorderController.php`, {
+      userID: this.id,
+      products: filteredProducts
+    });
+  } 
 }

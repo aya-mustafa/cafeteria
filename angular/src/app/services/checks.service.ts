@@ -12,6 +12,6 @@ export class ChecksService {
 
   constructor(private _http:HttpClient) { }
   getChecks(): Observable<Checks[]>{
-    return this._http.get <Checks[]>("http://localhost/REST_api/Cafe-Api/controllers/checks/read.php");
+    return this._http.get <Checks[]>("http://localhost/cafe_project/controllers/checks/read.php");
   }
 }

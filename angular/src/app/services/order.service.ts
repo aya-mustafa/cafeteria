@@ -10,12 +10,25 @@ export class OrderService {
   constructor(private _HttpClient:HttpClient) { 
     let idFromLoacalStorge = localStorage.getItem("userId");
     let idOfCurrentUser = (Number(idFromLoacalStorge ))
-    console.log(idOfCurrentUser)
-    console.log(typeof idOfCurrentUser)
+   
+   
   }
 
-  // getorders():Observable<any>{
-  //   return  this._HttpClient.get('http://localhost/PHP/devpro/Cafe-Api/controllers/orders/getallordersControllers.php')
-  //  }
+  getAllOrders():Observable<any>{
+    return  this._HttpClient.get('http://localhost/cafe_project/controllers/orders/getallordersController.php')
+   }
+
+
+  getOrdersOfUser (id: number): Observable<any> {
+    return this._HttpClient.get(`http://localhost/cafe_project/controllers/orders/getUserOrderController.php?id=${id}}`);
+  } 
+
+
+  deleteOrder (id: number): Observable<any> {
+    return this._HttpClient.delete(`http://localhost/cafe_project/controllers/orders/deleteorderController.php?id=${id}`);
+  } 
+
+
+
  
 }

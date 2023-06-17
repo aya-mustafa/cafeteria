@@ -34,6 +34,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'forgetpassword',component:ForgetPasswordComponent},
+  
 
   {path:'admin/users',component:UsersComponent,canActivate:[AuthService]},
   {path:'admin/products',component:ProductAdminComponent,canActivate:[AuthService]},

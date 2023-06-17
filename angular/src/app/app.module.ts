@@ -52,6 +52,7 @@ import { UserOrderComponent } from './user/user-order/user-order.component';
     UsersComponent,
     CategoryAdminComponent,
     ChecksComponent,
+    
     AdminOrdersComponent,
     NavbarComponent,
     FooterComponent,

@@ -13,7 +13,8 @@ export class CartComponent {
   constructor(private _CartService : CartService)
   {
     this.cartItems = this._CartService.items;
-   this.getTotalPrice()
+   this.increaseTotalPrice()
+   
   }
   productQuantity:number=1;
   priceForOneProduct:any=15;
@@ -24,7 +25,7 @@ export class CartComponent {
     let price = Number(product.price);
     product.p_quantity++;
     price = product.p_quantity*price;
-    this.getTotalPrice()
+    this.increaseTotalPrice()
   }
   minusQuantity(product:any)
   {
@@ -33,7 +34,7 @@ export class CartComponent {
       let price = Number(product.price);
       product.p_quantity--;
       price = product.p_quantity*price;
-      this.getTotalPrice()
+      this.decreaseTotalPrice()
     }
   }
   resetCount(product:any)
@@ -43,7 +44,7 @@ export class CartComponent {
   }
 
 
-  getTotalPrice()
+  increaseTotalPrice()
   {
     for(var i=0;i<this.cartItems.length;i++)
     {
@@ -52,11 +53,35 @@ export class CartComponent {
     }
   }
 
+
+  decreaseTotalPrice()
+  {
+    for(var i=0;i<this.cartItems.length;i++)
+    {
+      //console.log(this.cartItems[i].price)
+      this.totalPrice-= Number(this.cartItems[i].price);
+    }
+  }
+
+
+
   removeItem(product:any)
   {
     this._CartService.delete(product);
     alert("product removed from cart")
   }
 
+  checkout()
+  {
+    
+    this._CartService.addOrder().subscribe(res => {
+      console.log(res);
+      
+      localStorage.removeItem('items')
+      location.replace('/cart')
+      
+    })
 
+
+  }
 }

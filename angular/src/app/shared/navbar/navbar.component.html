@@ -1,44 +1,82 @@
-
 <nav class="navbar navbar-expand-sm navbar-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#"><i class="fa fa-coffee me-2"></i> Cafeteria</a>
-    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-        aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-sliders-h  "></i></button>
+  <div class="container">
+    <a class="navbar-brand" href="#"
+      ><i class="fa fa-coffee me-2"></i> Cafeteria</a
+    >
+    <button
+      class="navbar-toggler d-lg-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-sliders-h"></i>
+    </button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
-        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-            <li class="nav-item active change">
-                <a class="nav-link" routerLink="home">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="about">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="contact">Contact</a>
-            </li>
-            <li class="nav-item ">
-                <a *ngIf="isLog&&!isadmine" class="nav-link" routerLink="products">Products</a>
-            </li>
-            <li class="nav-item ">
-                <a  *ngIf="isLog&&isadmine" class="nav-link" routerLink="admin/users">Admine User</a>
-            </li>
-            <li class="nav-item ">
-                <a  *ngIf="isLog&&isadmine" class="nav-link" routerLink="admin/products">Admine products</a>
-            </li>
-            <li  class="nav-item ">
-                <a  *ngIf="isLog&&!isadmine" class="nav-link" routerLink="cart">Cart</a>
-            </li>
-            <li class="nav-item ">
-                <a   *ngIf="isLog&&!isadmine" class="nav-link" routerLink="orders">My orders</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
-                <div class="dropdown-menu" aria-labelledby="dropdownId">
-                    <a *ngIf="!isLog"  class="dropdown-item" routerLink="login" >Login</a>
-                    <a  *ngIf="!isLog" class="dropdown-item" routerLink="register" >Register</a>
-                    <a *ngIf="isLog" (click)="logOut()"  class="dropdown-item"  >logOut</a>
-                </div>
-            </li>
-        </ul>
+      <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+        <li class="nav-item active change">
+          <a class="nav-link" routerLink="home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLog && !isadmine" class="nav-link" routerLink="products"
+            >Products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLog && isadmine" class="nav-link" routerLink="admin/users"
+            >Admine User</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a *ngIf="isLog && isadmine" class="nav-link" routerLink="checks"
+            >Checks</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            *ngIf="isLog && isadmine"
+            class="nav-link"
+            routerLink="admin/products"
+            >Admine products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLog && !isadmine" class="nav-link" routerLink="cart"
+            >Cart</a
+          >
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLog && !isadmine" class="nav-link" routerLink="orders"
+            >My orders</a
+          >
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="dropdownId"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            ><i class="fa fa-user-plus" aria-hidden="true"></i
+          ></a>
+          <div class="dropdown-menu" aria-labelledby="dropdownId">
+            <a *ngIf="!isLog" class="dropdown-item" routerLink="login">Login</a>
+            <a *ngIf="!isLog" class="dropdown-item" routerLink="register"
+              >Register</a
+            >
+            <a *ngIf="isLog" (click)="logOut()" class="dropdown-item">logOut</a>
+          </div>
+        </li>
+      </ul>
     </div>
-    </div>
+  </div>
 </nav>
