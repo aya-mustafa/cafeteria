@@ -47,24 +47,34 @@ export class CartService {
   }
 
   addOrder (): Observable<any> {
-
-    console.log(this.items);
-
-    console.log(this.id);
     
+    // filter data to backend 
     const filteredProducts = this.items.map(({p_id,p_quantity }) => {
 
       return {id: p_id, quantity: p_quantity};
       
-    } )
-
-    console.log(filteredProducts);
-    
-    
-
+    } )    
+  
     return this._HttpClient.post(`http://localhost/cafe_project/controllers/orders/addorderController.php`, {
       userID: this.id,
       products: filteredProducts
     });
-  } 
+  }
+  
+  addOrderToUser (id: number): Observable <any> {
+ // filter data to backend 
+ 
+  const filteredProducts = this.items.map(({p_id,p_quantity }) => {
+
+  return {id: p_id, quantity: p_quantity};
+  
+  } )    
+
+
+    return this._HttpClient.post(`http://localhost/cafe_project/controllers/orders/addorderController.php`, {
+      userID: id,
+      products: filteredProducts
+    })
+
+  }
 }

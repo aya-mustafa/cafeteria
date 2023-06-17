@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,16 +11,67 @@ export class CartComponent {
 
   cartItems:any[]=[];
   totalPrice:number=0;
-  constructor(private _CartService : CartService)
-  {
-    this.cartItems = this._CartService.items;
-   this.increaseTotalPrice()
-   
-  }
+
+  allUsers: any[] = []
+  isAdmin:boolean = false;
+  userId!:number  
+
   productQuantity:number=1;
   priceForOneProduct:any=15;
 
  totalPriceForOneProduct:any=this.priceForOneProduct
+  constructor(private _CartService : CartService, private _UserService : UserService)
+  {
+
+
+        //check if user is admin
+        let cuurentUserSate = localStorage.getItem("Admin")
+    
+        if(cuurentUserSate == "true")
+        {
+          this.isAdmin = true;
+         
+        }
+        else
+        {
+          this.isAdmin = false;
+         
+        }
+    ; 
+
+
+
+  this.cartItems = this._CartService.items;
+  this.increaseTotalPrice()
+   
+   
+  
+
+  }
+
+
+  ngOnInit() {
+    this._UserService.getAllUsers().subscribe(res => {
+      
+
+      
+      
+      this.allUsers = res.map((element: any) => {
+
+        return {id: element.id, name: element.name};
+      })
+
+      console.log(this.allUsers);
+      
+      
+    })
+
+
+   
+    
+  }
+
+
   plusQuantity(product:any)
   {
     let price = Number(product.price);
@@ -75,7 +127,7 @@ export class CartComponent {
   {
     
     this._CartService.addOrder().subscribe(res => {
-      console.log(res);
+      
       
       localStorage.removeItem('items')
       location.replace('/cart')
@@ -84,4 +136,27 @@ export class CartComponent {
 
 
   }
+
+  getId (event: any) {
+    this.userId = (Number(event.target.value));
+  }
+
+
+  Admincheckout()
+  {
+    
+    this._CartService.addOrderToUser(this.userId).subscribe(res => {
+      
+      
+      localStorage.removeItem('items')
+      location.replace('/cart')
+      
+      
+    })
+
+
+  }
+
+
+
 }

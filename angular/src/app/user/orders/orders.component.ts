@@ -9,8 +9,8 @@ import { OrderService } from 'src/app/services/order.service';
 export class OrdersComponent {
 
 
-  @Input() dateFrom :string = '2022-01-01';
-  @Input() dateTo :string = '2024-01-01';
+  @Input() dateFrom :string = '';
+  @Input() dateTo :string = '';
 
 
   orders: any[] = [];
@@ -20,6 +20,8 @@ export class OrdersComponent {
   products: any[] = []
 
   showTable:boolean = false;
+
+  isAdmin: boolean = false;
 
 
 
@@ -32,12 +34,18 @@ export class OrdersComponent {
     
 
 
+
+
+
+//get orders of that user
+
     _OrderService.getOrdersOfUser(idOfCurrentUser).subscribe(res=> {
 
     this.originalOrders = res.data;
     this.orders = res.data;
     this.addTotalAmount(this.orders);
-
+      console.log(res);
+      
     this.filterDate(this.orders);
     
     })

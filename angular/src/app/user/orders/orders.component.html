@@ -1,10 +1,23 @@
 <div class="container mb-5">
   <h3 class="my-4">My Orders</h3>
 
-  <input type="date" [(ngModel)]="dateFrom" (change)="changeDate()" name="dateFrom" id="">
+  <input
+    class="my-4 mx-3 p-2"
+    type="date"
+    [(ngModel)]="dateFrom"
+    (change)="changeDate()"
+    name="dateFrom"
+    id=""
+  />
 
-  <input type="date" [(ngModel)]="dateTo" (change)="changeDate()" name="dateTo" id="">
-
+  <input
+    class="my-4 mx-3 p-2"
+    type="date"
+    [(ngModel)]="dateTo"
+    (change)="changeDate()"
+    name="dateTo"
+    id=""
+  />
 
   <table class="table table-bordered text-center">
     <thead>
