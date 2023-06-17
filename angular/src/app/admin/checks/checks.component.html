@@ -1,14 +1,15 @@
-<p>checks works!</p>
-<label for="dateFrom">Date from</label>
+<div class="container my-4">
+  <h3 class="my-5 text-center">Checks for Users</h3>
+<label class="me-2" for="dateFrom">Date from</label>
 <input type="date" [(ngModel)]="dateFrom" (change)="changeDate()" name="dateFrom" id="">
-<br><br>
-<label for="dateTo">Date to</label>
+<label class="ms-5 me-2" for="dateTo">Date to</label>
 <input type="date" [(ngModel)]="dateTo" (change)="changeDate()" name="dateTo" id="">
 <br><br>
-<select class="form-select" aria-label="Default select example">
+<h6>Select User</h6>
+<select class="form-select mt-3" aria-label="Default select example">
     <option *ngFor="let name of allNames" value="1">{{name}}</option>
   </select>
-  <table class="table table-hover">
+  <table class="table table-hover mt-2">
     <thead>
       <tr>
         <th scope="col">Name</th>
@@ -64,3 +65,4 @@
 </table>
 
   <br><br>
+</div>
