@@ -38,7 +38,7 @@ export class UsersComponent {
   user:any;
   allUsers:any;
   updatedCurrentElementId:any;
-
+  imageFile!:File;
   constructor( private _UserService: UserService)
   {
 
@@ -72,11 +72,42 @@ export class UsersComponent {
       layer.style.display = "none";
     }
 
+    addphoto(event:any)
+    {     
+      //  console.log(event.target);
+      //  console.log(this.addProductForm);
+  console.log(this.addUserForm);
+  
+      if(event.target.files.length>0){
+  
+         this.imageFile=event.target.files[0];
+        //  console.log(this.imageFile);
+         
+         this.addUserForm.patchValue({
+           image:this.imageFile
+         });
+  
+         console.log(this.addUserForm);
+  
+    }
+  
+    }
+  
   addUser()
   {
-    this._UserService.addUser(this.addUserForm.value).subscribe(
+    const formdata=new FormData();
+    formdata.append('name',this.addUserForm.get('name')?.value)
+    formdata.append('email',this.addUserForm.get('email')?.value)
+    formdata.append('password',this.addUserForm.get('password')?.value)
+    formdata.append('room_number',this.addUserForm.get('room_number')?.value)
+    formdata.append('ext',this.addUserForm.get('ext')?.value)
+    formdata.append('image',this.imageFile)
+    
+    this._UserService.addUser(formdata).subscribe(
       {
         next: res => {
+          console.log(res);
+          
           console.log("added Succssfully")
         },
         error: err =>
@@ -101,7 +132,15 @@ export class UsersComponent {
 
   updateUser()
   {
-    this._UserService.updateUser(this.updatedCurrentElementId,this.updateUserForm.value).subscribe(
+    const formdata=new FormData();
+    formdata.append('name',this.updateUserForm.get('name')?.value)
+    formdata.append('email',this.updateUserForm.get('email')?.value)
+    formdata.append('password',this.updateUserForm.get('password')?.value)
+    formdata.append('room_number',this.updateUserForm.get('room_number')?.value)
+    formdata.append('ext',this.updateUserForm.get('ext')?.value)
+    formdata.append('image',this.imageFile)
+
+    this._UserService.updateUser(this.updatedCurrentElementId,formdata).subscribe(
       {
         next: res => {
           console.log("updated Succssfully")
