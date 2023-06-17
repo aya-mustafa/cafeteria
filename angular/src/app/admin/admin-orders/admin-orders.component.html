@@ -1,12 +1,12 @@
 <div class="container mb-5">
     <h3 class="my-4">My Orders</h3>
   
-    <input type="date" [(ngModel)]="dateFrom" (change)="changeDate()" name="dateFrom" id="">
+    <input class="me-5" type="date" [(ngModel)]="dateFrom" (change)="changeDate()" name="dateFrom" id="">
   
     <input type="date" [(ngModel)]="dateTo" (change)="changeDate()" name="dateTo" id="">
   
   
-    <table class="table table-bordered text-center">
+    <table class="table table-bordered text-center mt-4">
       <thead>
         <th class="py-2">Name</th>
         <th class="py-2">Order Date</th>
@@ -25,12 +25,6 @@
  
         </tr>
       </tbody>
-      <tfoot>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="py-2">Total {{ addTotalAmount(orders) }} EGP</td>
-      </tfoot>
     </table>
   
     <!-- ---------------------------------------------------------------------------------------------------------------- -->
@@ -47,7 +41,7 @@
       <tbody>
         <tr *ngFor="let product of products">
           <td>{{ product.name }}</td>
-          <td><img [src]="product.image" alt="" /></td>
+          <td><img style="width: 250px;" [src]="product.image" alt="" /></td>
           <td>{{ product.price }}</td>
         </tr>
       </tbody>

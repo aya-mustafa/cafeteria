@@ -17,48 +17,55 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
       <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
         <li class="nav-item active change">
-          <a class="nav-link" routerLink="home">Home</a>
+          <a class="nav-link" routerLinkActive="test" routerLink="home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="about">About</a>
+          <a class="nav-link" routerLinkActive="test" routerLink="about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="contact">Contact</a>
+          <a class="nav-link"routerLinkActive="test" routerLink="contact">Contact</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="isLog && !isadmine" class="nav-link" routerLink="products"
-            >Products</a
-          >
-        </li>
-        <li class="nav-item">
-          <a *ngIf="isLog && isadmine" class="nav-link" routerLink="admin/users"
+          <a *ngIf="isLog && isadmine"routerLinkActive="test" class="nav-link" routerLink="admin/users"
             >Admine User</a
           >
         </li>
 
         <li class="nav-item">
-          <a
+          <a routerLinkActive="test"
             *ngIf="isLog && isadmine"
             class="nav-link"
             routerLink="admin/products"
             >Admine products</a
           >
         </li>
+
         <li class="nav-item">
-          <a *ngIf="isLog && isadmine" class="nav-link" routerLink="checks"
-            >Checks</a
+          <a *ngIf="isLog" routerLinkActive="test" class="nav-link" routerLink="products"
+            >Products</a
           >
         </li>
         <li class="nav-item">
-          <a *ngIf="isLog && !isadmine" class="nav-link" routerLink="cart"
+          <a *ngIf="isLog" routerLinkActive="test"  class="nav-link" routerLink="cart"
             >Cart</a
           >
         </li>
         <li class="nav-item">
-          <a *ngIf="isLog && !isadmine" class="nav-link" routerLink="orders"
+          <a *ngIf="isLog && !isadmine" routerLinkActive="test"  class="nav-link" routerLink="orders"
             >My orders</a
           >
         </li>
+        <li class="nav-item">
+          <a *ngIf="isLog && isadmine" routerLinkActive="test" class="nav-link" routerLink="checks"
+            >Checks</a
+          >
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLog && isadmine" routerLinkActive="test" class="nav-link" routerLink="admin/orders"
+            >Orders</a
+          >
+        </li>
+
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
