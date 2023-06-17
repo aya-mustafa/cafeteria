@@ -1,56 +1,56 @@
 #home
 {
-    background-image: url(../../../assets/realistic-coffee-background_79603-1652.webp) ;
     background-size: 100% 110%;
-    height: 100vh;
+    // height: 100vh;
     position: relative;
 }
 .layer
 {
-    background-color:rgba(0,0,0,0.9);
-    height: 100%;
+   // background-color:rgba(0,0,0,0.9);
+    height: 80%;
 }
 .header-info
 {
     display: flex;
-    justify-content: center;
+   // justify-content: center;
     align-items: center;
 }
-.header-info-content
-{
-    width:60%;
+// .header-info-content
+// {
+//     width:60%;
 
-}
+// }
 .header-info p
 {
     font-size: 22px;
-    margin: 15px;
-    line-height: 40px;
+    // margin: 15px;
+   // line-height: 40px;
 }
 .header-info h1
 {
-    font-size: 74px;
-    font-weight: 100;
+    font-size: 50px;
+    font-weight: 400;
 }
 .header-info button
 {
-    padding: 13px 23px;
+    padding: 7px 14px;
     font-size: 18px;
     font-weight: 500;
     font-family: 'Segoe UI light';
     margin: 15px 15px 0px 0px;
-    border-radius: 4px;
-    color:#fff
+    border: none;
+    // color:#fff
 }
 .header-info .more-button
 {
-    background-color: #8e7754;
-    border: 2px solid #8e7754;
+    background-color: rgb(234, 96, 46);
+    
 }
 .header-info .contact-button
 {
     background-color:transparent;
-    border:2px solid #dfd9d9;
+    border:none;
+    box-shadow: 0px 0px 10px #d5d3d3;
 }
 .header-info .more-button a ,.header-info .contact-button a
 {
@@ -58,12 +58,39 @@
     color:#fff
 }
 
-.card
+.cards
 {
-    background-color: #fbfafa;
+    background-color: rgb(234, 96, 46);
+    color:#fff;
     transition: all 0.5s;
+    font-size: 25px;
+    font-weight: 500;
+    font-family:'Times New Roman', Times, serif;
 }
 .card:hover
 {
     transform: scale(1.1,1.1);
+}
+
+
+#about
+{
+    p
+    {
+        font-size: 18px;
+    }
+    img
+    {
+        width: 90%;
+    }
+}
+
+ #popularFood .layer
+{
+    background-color: rgb(234, 96, 46) ;
+    height: fit-content;
+    top: 0;
+    right: 4px;
+    color : #fff;
+    padding: 5px;
 }
