@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { ForgetpasswordService } from 'src/app/services/forgetpassword.service';
 
 @Component({
   selector: 'app-forget-password',
@@ -9,56 +9,31 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./forget-password.component.scss']
 })
 export class ForgetPasswordComponent {
-  constructor(private _router:Router, private auth: AuthService)
+  constructor(private _router:Router, private _ForgetPassword: ForgetpasswordService)
   {
+
   }
 
   loginForm:FormGroup = new FormGroup(
     {
       email :  new FormControl('',[Validators.required,Validators.email]),
-      password : new FormControl('',[Validators.required]),
+    
     }
   )
 
-  login()
-  {
+  forgetPassword(loginForm: any)
+  { 
 
-      if(this.loginForm.status=='INVALID')
-      {
-        return;
-      }
-      this.auth.login(this.loginForm.value).subscribe(
-      {
-        next: res => {
-          console.log("res",res.token)
-          localStorage.setItem("token",res.token);
-          this.auth.saveCrrentUser();
-          let isAdmin:any = localStorage.getItem("isAdmin");
-          console.log(isAdmin);
-          console.log(typeof isAdmin);
-          if(isAdmin == "1")
-          {
-            this._router.navigateByUrl('/admin/products');
-            location.replace('/admin/products')
-            localStorage.setItem("Admin","true");
-          }
-          else
-          {
-            this._router.navigateByUrl('/products');
-            location.replace('/products')
-            localStorage.setItem("Admin","false");
-          }
+    console.log(loginForm.value);
     
-        },
-        error: err => alert(alert("Invalid Email or password")),
-        complete: () => {
-        }
-      })
-    }
+    this._ForgetPassword.getcode(loginForm.value).subscribe(res => {
+      console.log(res);
+      
+    })
+    
+    // this._router.navigateByUrl('/login')
+  }
 
 
-    navigate()
-    {
-      this._router.navigateByUrl('/register')
-    }
+   
 }
