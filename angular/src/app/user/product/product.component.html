@@ -1,6 +1,9 @@
+<div class="search">
+  <input type="text" [(ngModel)]="term" placeholder="Search by Name" class="w-50 mb-4 m-auto form-control bg-transparent ">
+</div>
 <div class="container my-5">
     <div class="row mb-3">
-        <div class="col-md-3 mb-4" *ngFor="let product of allProducts">
+        <div class="col-md-3 mb-4" *ngFor="let product of allProducts|search:term">
             <div class="card position-relative" >
               <div class="card-body">
                 <div class="layer">

@@ -30,6 +30,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { UserOrderComponent } from './user/user-order/user-order.component';
+import { UserSearchPipe } from './pipes/user-search.pipe';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { UserOrderComponent } from './user/user-order/user-order.component';
     NavbarComponent,
     FooterComponent,
     HeaderComponent,
-    UserOrderComponent
+    UserOrderComponent,
+    UserSearchPipe
   ],
   imports: [
     BrowserModule,

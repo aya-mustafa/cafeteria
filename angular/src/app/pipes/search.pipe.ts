@@ -5,8 +5,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
-  }
+  transform(products:any[], term:string): any[]  {
+    return products.filter((product)=>
+    {
+        return product.p_name.toLowerCase().includes(term.toLowerCase())
+    })
 
+}
 }

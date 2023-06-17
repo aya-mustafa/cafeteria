@@ -12,9 +12,11 @@ export class NavbarComponent {
   
   isLog:any;
   isadmine:boolean = false;
+  userName = localStorage.getItem("userName");
+
   constructor( private _authservice :AuthService,private _router:Router)
   {
-
+    console.log(this.userName);
     let cuurentUserSate = localStorage.getItem("Admin");
     if(cuurentUserSate == "true")
     {

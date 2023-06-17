@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductComponent {
 
+  term:string="";
   
   allProducts:any;
   constructor(private _CategoryService: ProductService, private _router:Router, private _CartService : CartService)

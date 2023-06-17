@@ -83,7 +83,13 @@
             <a *ngIf="isLog" (click)="logOut()" class="dropdown-item">logOut</a>
           </div>
         </li>
+
       </ul>
     </div>
   </div>
 </nav>
+<div class="container my-3 dir">
+  <h5 *ngIf="isLog">
+   <b> Hello:  {{userName}}</b>
+  </h5>
+</div>

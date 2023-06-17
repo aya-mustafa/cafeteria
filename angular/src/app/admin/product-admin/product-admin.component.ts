@@ -8,6 +8,8 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class ProductAdminComponent {
 
+
+  term:string="";
   addProductForm:FormGroup = new FormGroup(
     {
       name: new FormControl('',[Validators.required,Validators.minLength(3), Validators.maxLength(20)]),

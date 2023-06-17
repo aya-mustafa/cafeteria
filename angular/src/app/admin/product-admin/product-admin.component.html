@@ -5,6 +5,9 @@
     </a>
     <div class="row flex-nowrap">
       <div class="container-fluid" style="width: 82vw">
+        <div class="search">
+            <input type="text" [(ngModel)]="term" placeholder="Search by Name" class="w-50 mb-4 m-auto form-control bg-transparent ">
+          </div>
         <div class="pageBox mt-4 ">
             <table class="text-center">
                 <thead class="mb-3">
@@ -16,7 +19,7 @@
                 </thead>
                 <div class="py-2"></div>
                 <tbody>
-                    <tr  *ngFor="let product of products | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage } ">
+                    <tr  *ngFor="let product of products|search:term | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage } ">
 
                         <td >{{product.p_name}}</td>
                         <td>
