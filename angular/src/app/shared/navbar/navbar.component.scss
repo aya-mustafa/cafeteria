@@ -2,15 +2,14 @@
 /*_____Start nav styling____*/
     nav
     {
-        background-color: rgba(0,0,0);
+        background-color: rgba(244, 242, 242,0.3);
     }
-    .navbar-light .navbar-nav .active>.nav-link
-    {
-        color:#8e7754
+    .navbar-brand {
+        color:rgb(234, 96, 46)
     }
     .navbar-expand-sm .navbar-nav .nav-link
     {
-        color: #d4c9c9;
+        color: #717070;
         font-size: 18px;
         margin-right: 16px;
         padding: 3px;
