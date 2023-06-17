@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { OrderService } from 'src/app/services/order.service';
 
 @Component({
@@ -9,7 +9,13 @@ import { OrderService } from 'src/app/services/order.service';
 export class OrdersComponent {
 
 
+  @Input() dateFrom :string = '2022-01-01';
+  @Input() dateTo :string = '2024-01-01';
+
+
   orders: any[] = [];
+
+  originalOrders: any[] = [];
 
   products: any[] = []
 
@@ -28,7 +34,7 @@ export class OrdersComponent {
 
     _OrderService.getOrdersOfUser(idOfCurrentUser).subscribe(res=> {
 
-
+    this.originalOrders = res.data;
     this.orders = res.data;
     this.addTotalAmount(this.orders);
 
@@ -123,5 +129,11 @@ export class OrdersComponent {
   this.showTable = true
   }
 
+
+  changeDate(){
+    let filterDateOrder = this.originalOrders.filter(x=> new Date(x.date)<= new Date(this.dateTo) && new Date(x.date)>= new Date(this.dateFrom));
+    this.orders = filterDateOrder;
+    console.log(filterDateOrder);
+  }
 
 }
