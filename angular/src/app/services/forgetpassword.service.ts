@@ -8,9 +8,9 @@ export class ForgetpasswordService {
 
   constructor(private _HttpClient:HttpClient) { }
 
-  getcode():Observable<any>
+  getcode(data: any):Observable<any>
   {
-    return this._HttpClient.get('http://localhost/cafe_project/controllers/auth/forgetpassword.php');
+    return this._HttpClient.post('http://localhost/cafe_project/controllers/auth/send_mail.php', data);
   }
 
 }
