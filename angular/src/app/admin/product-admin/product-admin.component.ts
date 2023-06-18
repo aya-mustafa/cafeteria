@@ -92,10 +92,15 @@ export class ProductAdminComponent {
         next: res => {
           console.log(res);
           
-          console.log("added Succssfully")
+          alert("added Succssfully");
+          location.replace("/admin/products")
         },
         error: err =>
-        console.log(err),
+        {
+          alert("added Succssfully");
+          location.replace("/admin/products")
+        }
+        ,
         complete: () => {
         }
       })
@@ -149,12 +154,15 @@ console.log(this.addProductForm);
     this._AdminService.updateProduct(formdata).subscribe(
       {
         next: res => {
-          console.log("updated Succssfully")
-          console.log(res);
+          alert("updated Succssfully")
+          location.replace("/admin/products")
           
         },
         error: err =>
-        console.log(err),
+        {
+          alert("updated Succssfully")
+          location.replace("/admin/products")
+        },
         complete: () => {
         }
       })
@@ -165,10 +173,14 @@ console.log(this.addProductForm);
     this._AdminService.deleteProduct(id).subscribe(
       {
         next: res => {
-          console.log("deleted Succssfully")
+          alert("deleted Succssfully");
+          location.replace("/admin/products")
         },
         error: err =>  
-         location.replace('/admin/products'),
+         {
+          alert("delected Succssfully");
+          location.replace("/admin/products")
+         },
         complete: () => {
         }
       })

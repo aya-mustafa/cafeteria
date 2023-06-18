@@ -108,7 +108,8 @@ export class UsersComponent {
         next: res => {
           console.log(res);
           
-          console.log("added Succssfully")
+          alert("added Succssfully");
+          location.replace("/admin/users")
         },
         error: err =>
         console.log(err),
@@ -143,10 +144,14 @@ export class UsersComponent {
     this._UserService.updateUser(this.updatedCurrentElementId,formdata).subscribe(
       {
         next: res => {
-          console.log("updated Succssfully")
+          alert("updated Succssfully");
+          location.replace("/admin/users");
         },
         error: err =>
-        console.log(err),
+        {
+          location.replace("/admin/users")
+        }
+    ,
         complete: () => {
         }
       })
@@ -157,7 +162,8 @@ export class UsersComponent {
     this._UserService.deleteUser(id).subscribe(
       {
         next: res => {
-          console.log("deleted Succssfully")
+          alert("deleted Succssfully");
+          location.replace("/admin/users")
         },
         error: err =>
         console.log(err),
