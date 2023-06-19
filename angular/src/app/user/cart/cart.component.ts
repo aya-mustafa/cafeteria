@@ -10,16 +10,16 @@ import { UserService } from 'src/app/services/user.service';
 export class CartComponent {
 
   cartItems:any[]=[];
-  totalPrice:number=0;
+  totalPrice!:number
 
   allUsers: any[] = []
   isAdmin:boolean = false;
   userId!:number  
 
   productQuantity:number=1;
-  priceForOneProduct:any=15;
+ 
 
- totalPriceForOneProduct:any=this.priceForOneProduct
+
   constructor(private _CartService : CartService, private _UserService : UserService)
   {
 
@@ -42,7 +42,7 @@ export class CartComponent {
 
 
   this.cartItems = this._CartService.items;
-  this.increaseTotalPrice()
+  
    
    
   
@@ -66,18 +66,37 @@ export class CartComponent {
       
     })
 
-
+    
+    this.totalPrice=this.calculateTotal(this.cartItems);
+    
+    this.cartItems.forEach(product => this.resetCount(product));
    
     
   }
 
+  calculateTotal (items : any) {
+
+    console.log(items);
+    
+    let totalamount = items.reduce((accumlator: number, current: any ):number =>{
+
+      const sum = accumlator + (Number(current.price) );
+  
+      return sum;
+    } ,0);
+    
+    console.log(totalamount);
+    
+    return totalamount;
+    
+  }
 
   plusQuantity(product:any)
   {
     let price = Number(product.price);
     product.p_quantity++;
     price = product.p_quantity*price;
-    this.increaseTotalPrice()
+    this.increaseTotalPrice(product)
   }
   minusQuantity(product:any)
   {
@@ -86,7 +105,7 @@ export class CartComponent {
       let price = Number(product.price);
       product.p_quantity--;
       price = product.p_quantity*price;
-      this.decreaseTotalPrice()
+      this.decreaseTotalPrice(product);
     }
   }
   resetCount(product:any)
@@ -96,23 +115,17 @@ export class CartComponent {
   }
 
 
-  increaseTotalPrice()
+  increaseTotalPrice(product : any)
   {
-    for(var i=0;i<this.cartItems.length;i++)
-    {
-      //console.log(this.cartItems[i].price)
-      this.totalPrice+= Number(this.cartItems[i].price);
-    }
+
+    console.log(product);
+   this.totalPrice += product.price;
   }
 
 
-  decreaseTotalPrice()
+  decreaseTotalPrice(product : any)
   {
-    for(var i=0;i<this.cartItems.length;i++)
-    {
-      //console.log(this.cartItems[i].price)
-      this.totalPrice-= Number(this.cartItems[i].price);
-    }
+    this.totalPrice -= product.price;
   }
 
 

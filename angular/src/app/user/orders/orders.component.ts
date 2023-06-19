@@ -44,7 +44,7 @@ export class OrdersComponent {
     this.originalOrders = res.data;
     this.orders = res.data;
     this.addTotalAmount(this.orders);
-      console.log(res);
+     
       
     this.filterDate(this.orders);
     

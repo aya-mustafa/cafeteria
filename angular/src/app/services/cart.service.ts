@@ -42,7 +42,14 @@ export class CartService {
   }
   delete(item:any)
   {
-    this.items.splice(item,1);
+   
+    let index = this.items.indexOf(item);
+   
+    
+    this.items.splice(index,1);
+
+
+    
     localStorage.setItem('items',JSON.stringify(this.items));
   }
 
