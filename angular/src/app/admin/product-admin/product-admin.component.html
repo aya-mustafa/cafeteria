@@ -58,11 +58,20 @@
         <div class="form-group mb-4">
             <input type="text" class="form-control my-2 bg-transparent"  placeholder="Enter product Name" formControlName="name">
         </div>
+        <div *ngIf="addProductForm.controls['name'].errors&& addProductForm.controls['name'].touched ">
+            <span *ngIf="addProductForm.controls['name'].errors?.['required']!==undefined" class="text-danger">Name is required</span>
+        </div>
         <div class="form-group mb-4">
             <input type="text" class="form-control my-2 bg-transparent" placeholder="Enter price" formControlName="price">
         </div>
+        <div *ngIf="addProductForm.controls['price'].errors&& addProductForm.controls['price'].touched ">
+            <span *ngIf="addProductForm.controls['price'].errors?.['required']!==undefined" class="text-danger">Price is required</span>
+        </div>
         <div class="form-group mb-4">
             <input type="number" class="form-control my-2 bg-transparent" placeholder="Enter quantity " formControlName="quantity">
+        </div>
+        <div *ngIf="addProductForm.controls['quantity'].errors&& addProductForm.controls['quantity'].touched ">
+            <span *ngIf="addProductForm.controls['quantity'].errors?.['required']!==undefined" class="text-danger">Price is required</span>
         </div>
         <div class="form-group mb-4">
             <input type="file" class="form-control my-2 bg-transparent" (change)="addphoto($event)" placeholder="Enter product Image">
@@ -81,11 +90,20 @@
         <div class="form-group mb-4">
             <input type="text" class="form-control my-2 bg-transparent" placeholder="Enter product Name" formControlName="name">
         </div>
+        <div *ngIf="updateProductForm.controls['name'].errors&& updateProductForm.controls['name'].touched ">
+            <span *ngIf="updateProductForm.controls['name'].errors?.['required']!==undefined" class="text-danger">Name is required</span>
+        </div>
         <div class="form-group mb-4">
             <input type="text" class="form-control my-2 bg-transparent" placeholder="Enter price" formControlName="price">
         </div>
+        <div *ngIf="updateProductForm.controls['price'].errors&& updateProductForm.controls['price'].touched ">
+            <span *ngIf="updateProductForm.controls['price'].errors?.['required']!==undefined" class="text-danger">Price is required</span>
+        </div>
         <div class="form-group mb-4">
             <input type="number" class="form-control my-2 bg-transparent" placeholder="Enter quantity" formControlName="quantity">
+        </div>
+        <div *ngIf="updateProductForm.controls['quantity'].errors&& updateProductForm.controls['quantity'].touched ">
+            <span *ngIf="updateProductForm.controls['quantity'].errors?.['required']!==undefined" class="text-danger">Price is required</span>
         </div>
         <div class="form-group mb-4">
             <input type="number" class="form-control my-2 bg-transparent" placeholder="Enter product_id" formControlName="product_id">
